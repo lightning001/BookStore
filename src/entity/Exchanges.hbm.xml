@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2017 7:24:23 PM by Hibernate Tools 5.2.3.Final -->
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+		mutable="true" name="entity.Exchanges" optimistic-lock="version"
+		polymorphism="implicit" select-before-update="false" table="exchanges">
+		<id name="exchangeId" type="java.lang.Integer">
+			<column name="exchangeID" />
+			<generator class="identity" />
+		</id>
+		<many-to-one class="entity.Accounts" embed-xml="true"
+			fetch="select" insert="true" name="accounts" not-found="exception"
+			optimistic-lock="true" unique="false" update="true">
+			<column name="accountID" />
+		</many-to-one>
+		<many-to-one class="entity.Book" embed-xml="true" fetch="select"
+			insert="true" name="book" not-found="exception" optimistic-lock="true"
+			unique="false" update="true">
+			<column name="bookID" />
+		</many-to-one>
+		<many-to-one class="entity.Chapter" embed-xml="true"
+			fetch="select" insert="true" name="chapter" not-found="exception"
+			optimistic-lock="true" unique="false" update="true">
+			<column name="chapterID" />
+		</many-to-one>
+		<property generated="insert" lazy="false" name="xtime"
+			optimistic-lock="true" type="timestamp" unique="false">
+			<column length="19" name="xtime" not-null="true" />
+		</property>
+		<property generated="insert" lazy="false" name="amount"
+			optimistic-lock="true" type="java.lang.Float" unique="false">
+			<column name="amount" precision="12" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

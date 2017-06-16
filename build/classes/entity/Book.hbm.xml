@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+		mutable="true" name="entity.Book" optimistic-lock="version"
+		polymorphism="implicit" select-before-update="false" table="book">
+		<id name="bookId" type="java.lang.Integer">
+			<column name="bookID" />
+			<generator class="identity" />
+		</id>
+		<property generated="never" lazy="false" name="bookName"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="200" name="bookName" />
+		</property>
+		<property generated="never" lazy="false" name="slug"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="210" name="slug" not-null="true" unique="true" />
+		</property>
+		<property generated="never" lazy="false" name="state"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="state" />
+		</property>
+		<property generated="never" lazy="false" name="linkImg"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="linkImg" />
+		</property>
+		<property generated="never" lazy="false" name="age"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="age" />
+		</property>
+		<property generated="never" lazy="false" name="introduction"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="1000" name="introduction" />
+		</property>
+		<property generated="never" lazy="false" name="postDate"
+			optimistic-lock="true" type="timestamp" unique="false">
+			<column length="19" name="postDate" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="country"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="50" name="country" />
+		</property>
+		<property generated="never" lazy="false" name="price"
+			optimistic-lock="true" type="java.lang.Float" unique="false">
+			<column name="price" precision="12" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="likes"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="likes" />
+		</property>
+		<property generated="never" lazy="false" name="subcribe"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="subcribe" />
+		</property>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="exchangeses" optimistic-lock="true" sort="unsorted"
+			table="exchanges">
+			<key on-delete="noaction">
+				<column name="bookID" />
+			</key>
+			<one-to-many class="entity.Exchanges" embed-xml="true"
+				not-found="exception" />
+		</set>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="likelib" optimistic-lock="true" sort="unsorted"
+			table="likelib">
+			<key on-delete="noaction">
+				<column name="bookID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Library"
+				not-found="exception" unique="false">
+				<column name="libID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="chapters" optimistic-lock="true" sort="unsorted"
+			table="chapter">
+			<key on-delete="noaction">
+				<column name="bookID" />
+			</key>
+			<one-to-many class="entity.Chapter" embed-xml="true"
+				not-found="exception" />
+		</set>
+		<set embed-xml="true" fetch="select" inverse="false" lazy="true"
+			mutable="true" name="book_author" optimistic-lock="true" sort="unsorted"
+			table="book_author">
+			<key on-delete="noaction">
+				<column name="bookID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Accounts"
+				not-found="exception" unique="false">
+				<column name="authorID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="subcribelib" optimistic-lock="true" sort="unsorted"
+			table="subcribelib">
+			<key on-delete="noaction">
+				<column name="bookID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Library"
+				not-found="exception" unique="false">
+				<column name="libID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set embed-xml="true" fetch="select" inverse="false" lazy="true"
+			mutable="true" name="categories" optimistic-lock="true" sort="unsorted"
+			table="book_category">
+			<key on-delete="noaction">
+				<column name="bookID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Category"
+				not-found="exception" unique="false">
+				<column name="categoryID" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

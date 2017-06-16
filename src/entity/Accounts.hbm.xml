@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated May 8, 2017 8:56:40 AM by Hibernate Tools 5.2.1.Final -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+		mutable="true" name="entity.Accounts" optimistic-lock="version"
+		polymorphism="implicit" select-before-update="false" table="accounts">
+		<id name="accountId" type="java.lang.Integer">
+			<column name="accountID" />
+			<generator class="identity" />
+		</id>
+		<property generated="never" lazy="false" name="email"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="50" name="email" not-null="true" unique="true" />
+		</property>
+		<property generated="never" lazy="false" name="passwords"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="28" name="passwords" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="username"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="30" name="username" not-null="true" unique="true" />
+		</property>
+		<property generated="never" lazy="false" name="name"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="name" />
+		</property>
+		<property generated="never" lazy="false" name="gender"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="gender" />
+		</property>
+		<property generated="never" lazy="false" name="linkImg"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="50" name="linkImg" />
+		</property>
+
+		<property generated="never" lazy="false" name="isLock"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="isLock" />
+		</property>
+		<property generated="never" lazy="false" name="createDate"
+			optimistic-lock="true" type="timestamp" unique="false">
+			<column length="19" name="createDate" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="money"
+			optimistic-lock="true" type="java.lang.Float" unique="false">
+			<column name="money" precision="12" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="levels"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="levels" />
+		</property>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="exchangeses" optimistic-lock="true" sort="unsorted"
+			table="exchanges">
+			<key on-delete="noaction">
+				<column name="accountID" />
+			</key>
+			<one-to-many class="entity.Exchanges" embed-xml="true"
+				not-found="exception" />
+		</set>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="libraries" optimistic-lock="true" sort="unsorted"
+			table="library">
+			<key on-delete="noaction">
+				<column name="accountID" not-null="true" unique="true" />
+			</key>
+			<one-to-many class="entity.Library" embed-xml="true"
+				not-found="exception" />
+		</set>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="books" optimistic-lock="true" sort="unsorted"
+			table="book_author">
+			<key on-delete="noaction">
+				<column name="authorID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Book"
+				not-found="exception" unique="false">
+				<column name="bookID" not-null="true" />
+			</many-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>

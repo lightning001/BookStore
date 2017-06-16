@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated May 22, 2017 7:24:23 PM by Hibernate Tools 5.2.3.Final -->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+		mutable="true" name="entity.Chapter" optimistic-lock="version"
+		polymorphism="implicit" select-before-update="false" table="chapter">
+		<id name="chapterId" type="java.lang.Integer">
+			<column name="chapterID" />
+			<generator class="identity" />
+		</id>
+		<many-to-one class="entity.Book" embed-xml="true" fetch="select"
+			insert="true" name="book" not-found="exception" optimistic-lock="true"
+			unique="false" update="true">
+			<column name="bookID" />
+		</many-to-one>
+		<property generated="never" lazy="false" name="orders"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="orders" />
+		</property>
+		<property generated="never" lazy="false" name="chapterName"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="200" name="chapterName" />
+		</property>
+		<property generated="never" lazy="false" name="slug"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="210" name="slug" unique="true" />
+		</property>
+		<property generated="never" lazy="false" name="postDate"
+			optimistic-lock="true" type="timestamp" unique="false">
+			<column length="19" name="postDate" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="isRead"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="isRead" />
+		</property>
+		<property generated="never" lazy="false" name="likes"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="likes" />
+		</property>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="chapterContents" optimistic-lock="true" sort="unsorted"
+			table="chapter_content">
+			<key on-delete="noaction">
+				<column name="chapterID" not-null="true" />
+			</key>
+			<one-to-many class="entity.ChapterContent" embed-xml="true"
+				not-found="exception" />
+		</set>
+		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
+			mutable="true" name="exchangeses" optimistic-lock="true" sort="unsorted"
+			table="exchanges">
+			<key on-delete="noaction">
+				<column name="chapterID" />
+			</key>
+			<one-to-many class="entity.Exchanges" embed-xml="true"
+				not-found="exception" />
+		</set>
+	</class>
+</hibernate-mapping>

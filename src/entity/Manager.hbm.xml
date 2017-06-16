@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2017 7:24:23 PM by Hibernate Tools 5.2.3.Final -->
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+		mutable="true" name="entity.Manager" optimistic-lock="version"
+		polymorphism="implicit" select-before-update="false" table="manager">
+		<id name="accountId" type="int">
+			<column name="accountID" />
+			<generator class="foreign">
+				<param name="property">accounts</param>
+			</generator>
+		</id>
+		<one-to-one class="entity.Accounts" constrained="true"
+			embed-xml="true" name="accounts" />
+		<property generated="never" lazy="false" name="office"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="office" />
+		</property>
+	</class>
+</hibernate-mapping>

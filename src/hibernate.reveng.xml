@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-schema="bookweb" match-name=".*" />
+	<table-filter match-catalog="bookweb" match-name="accounts" />
+	<table-filter match-catalog="bookweb" match-name="author" />
+	<table-filter match-catalog="bookweb" match-name="book" />
+	<table-filter match-catalog="bookweb" match-name="book_author" />
+	<table-filter match-catalog="bookweb" match-name="book_category" />
+	<table-filter match-catalog="bookweb" match-name="category" />
+	<table-filter match-catalog="bookweb" match-name="chapter" />
+	<table-filter match-catalog="bookweb" match-name="chapter_content" />
+	<table-filter match-catalog="bookweb" match-name="exchanges" />
+	<table-filter match-catalog="bookweb" match-name="library" />
+	<table-filter match-catalog="bookweb" match-name="likelib" />
+	<table-filter match-catalog="bookweb" match-name="manager" />
+	<table-filter match-catalog="bookweb" match-name="subcribelib" />
+	<table-filter match-catalog="bookweb" match-name="statistic" />
+</hibernate-reverse-engineering>

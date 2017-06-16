@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2017 7:24:23 PM by Hibernate Tools 5.2.3.Final -->
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+		mutable="true" name="entity.Library" optimistic-lock="version"
+		polymorphism="implicit" select-before-update="false" table="library">
+		<id name="libId" type="java.lang.Integer">
+			<column name="libID" />
+			<generator class="identity" />
+		</id>
+		<many-to-one class="entity.Accounts" embed-xml="true"
+			fetch="select" insert="true" name="accounts" not-found="exception"
+			optimistic-lock="true" unique="false" update="true">
+			<column name="accountID" not-null="true" unique="true" />
+		</many-to-one>
+		<set embed-xml="true" fetch="select" inverse="false" lazy="true"
+			mutable="true" name="likelib" optimistic-lock="true" sort="unsorted"
+			table="likelib">
+			<key on-delete="noaction">
+				<column name="libID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Book"
+				not-found="exception" unique="false">
+				<column name="bookID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set embed-xml="true" fetch="select" inverse="false" lazy="true"
+			mutable="true" name="subcribelib" optimistic-lock="true" sort="unsorted"
+			table="subcribelib">
+			<key on-delete="noaction">
+				<column name="libID" not-null="true" />
+			</key>
+			<many-to-many embed-xml="true" entity-name="entity.Book"
+				not-found="exception" unique="false">
+				<column name="bookID" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

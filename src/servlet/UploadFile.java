@@ -45,8 +45,7 @@ public class UploadFile extends HttpServlet implements Serializable {
 		upload(uploadPath);
 	}
 
-	@SuppressWarnings("rawtypes")
-	public Hashtable upload(String uploadPath) {
+	public Hashtable<Object, Object> upload(String uploadPath) {
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			try {
 				request.setAttribute("error", "Error: Form must has enctype=multipart/form-data.");
@@ -82,7 +81,7 @@ public class UploadFile extends HttpServlet implements Serializable {
 			List<FileItem> items = upload.parseRequest(request);
 
 			Iterator<FileItem> iter = items.iterator();
-			Hashtable param = new Hashtable<>();
+			Hashtable<Object, Object> param = new Hashtable<>();
 			String linkImg = "";
 			if (items != null && items.size() > 0) {
 				// iterates over form's fields

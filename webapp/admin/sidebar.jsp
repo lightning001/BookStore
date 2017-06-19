@@ -88,23 +88,14 @@
 						}
 					%>
 				</ul></li>
-			<li class="has-sub"><a href="javascript:;" class=""> <span
-					class="icon-box"><i class="icon-bookmark"></i></span>Quản lý danh
-					mục<span class="arrow"></span>
-			</a>
-				<ul class="sub">
-					<li><a class="" href="#">Thể loại</a></li>
-					<li><a class="" href="#">ABC</a></li>
-					<li><a class="" href="#">XYZ</a></li>
-				</ul></li>
 			<li class="has-sub"><a href="javascript:;" class=""><span
 					class="icon-box"><i class="icon-book"></i></span>Quản lý truyện<span
-					class="arrow"></span> </a>
+					class="arrow"></span></a>
 				<ul class="sub">
 					<li><a class=""
 						href="<%=request.getContextPath()%>/admin/book/1">Danh sách
 							truyện</a></li>
-					<li><a class="" href="#">Truyện tranh top</a></li>
+					<li><a class="" href="<%=request.getContextPath()%>/admin/book/checklist">Kiểm duyệt truyện</a></li>
 				</ul></li>
 			<li><a class=""
 				href="<%=request.getContextPath()%>/admin/logout"><span

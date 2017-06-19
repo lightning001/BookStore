@@ -39,6 +39,7 @@ public class InsertBook extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
@@ -47,6 +48,7 @@ public class InsertBook extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -65,14 +67,14 @@ public class InsertBook extends HttpServlet {
 				System.out.println("cate: " + cate);
 				String auth = (String) param.get("authors");
 				Accounts au = AccountDAO.getAccount(Integer.parseInt(auth));
-				String slug = TextFormat.createKeyWord(bookName + "-" + TextFormat.createKeyWord(au.getName()));
-				Set<Accounts> setAuthor = new HashSet<Accounts>();
+				String slug = TextFormat.createKeyWord(bookName + "-" + TextFormat.createKeyWord(au.getUsername()));
+				Set<Accounts> setAuthor = new HashSet<>();
 				setAuthor.add(au);
 				String introduction = (String) param.get("introduction");
 				Float price = Float.parseFloat((String) param.get("price"));
 				String linkImg = (String) param.get("linkfileAfterUpload");
 				Book book = new Book(bookName, slug, false, age, introduction, new Date(System.currentTimeMillis()),
-						linkImg, "", price, 0, null, setAuthor, setcate);
+						linkImg, "", price, false, 0, null, setAuthor, setcate);
 				if (BookDAO.insert(book)) {
 					request.getRequestDispatcher("/admin/book/1").forward(request, response);
 					return;

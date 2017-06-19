@@ -14,47 +14,13 @@ import util.HibernateUtils;
 
 public class BookDAO extends ObjectDAO implements Serializable {
 	private static final long serialVersionUID = -6153609389710317813L;
-	
-	public static List<Book> getFreeBook(){
+
+	public static List<Book> getFreeBook() {
 		List<Book> book = new ArrayList<Book>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName() +" e where price = 0 order by e.likes desc";
-			Query<Book> query = session.createQuery(hql);
-			query.setMaxResults(10);
-			book = query.list();
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			session.getTransaction().rollback();
-		}
-		return book;
-	}
-	
-	public static List<Book> getTop10BookLike(){
-		List<Book> book = new ArrayList<Book>();
-		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
-		try {
-			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName() +" e order by e.likes desc";
-			Query<Book> query = session.createQuery(hql);
-			query.setMaxResults(10);
-			book = query.list();
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			session.getTransaction().rollback();
-		}
-		return book;
-	}
-	
-	public static List<Book> getTop10BookSubcribe(){
-		List<Book> book = new ArrayList<Book>();
-		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
-		try {
-			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName() +" e order by e.subcribe desc";
+			String hql = "from " + Book.class.getName() + " e where price = 0 order by e.likes desc";
 			Query<Book> query = session.createQuery(hql);
 			query.setMaxResults(10);
 			book = query.list();
@@ -66,13 +32,79 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		return book;
 	}
 
+	public static List<Book> getCheckBook() {
+		List<Book> book = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e where e.checked=false order by e.postDate desc";
+			Query<Book> query = session.createQuery(hql);
+			book = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return book;
+	}
+
+	public static List<Book> getNewBook(int quantity) {
+		List<Book> book = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e where e.checked=true order by e.postDate desc";
+			Query<Book> query = session.createQuery(hql);
+			query.setMaxResults(quantity);
+			book = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return book;
+	}
+
+	public static List<Book> getTop10BookLike() {
+		List<Book> book = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e order by e.likes desc";
+			Query<Book> query = session.createQuery(hql);
+			query.setMaxResults(10);
+			book = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return book;
+	}
+
+	public static List<Book> getTop10BookSubcribe() {
+		List<Book> book = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e order by e.subcribe desc";
+			Query<Book> query = session.createQuery(hql);
+			query.setMaxResults(10);
+			book = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return book;
+	}
 
 	public static List<Book> getAllBook() {
 		List<Book> book = new ArrayList<Book>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName();
+			String hql = "from " + Book.class.getName() + " e order by e.postDate desc";
 			Query<Book> query = session.createQuery(hql);
 			book = query.list();
 			session.getTransaction().commit();
@@ -102,7 +134,6 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public static long getPageCount(int pageSize) {
 		if (pageSize == 0)
 			return 0;
@@ -132,7 +163,7 @@ public class BookDAO extends ObjectDAO implements Serializable {
 
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName() + " e order by e.bookId asc";
+			String hql = "from " + Book.class.getName() + " e order by e.bookId desc";
 			Query<Book> query = session.createQuery(hql);
 			query.setFirstResult((page - 1) * pageSize);
 			query.setMaxResults(pageSize);
@@ -144,5 +175,5 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		}
 		return listBook;
 	}
-	
+
 }

@@ -45,6 +45,10 @@
 			optimistic-lock="true" type="java.lang.Float" unique="false">
 			<column name="price" precision="12" scale="0" />
 		</property>
+		<property generated="never" lazy="false" name="checked"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="checked" />
+		</property>
 		<property generated="never" lazy="false" name="likes"
 			optimistic-lock="true" type="java.lang.Integer" unique="false">
 			<column name="likes" />

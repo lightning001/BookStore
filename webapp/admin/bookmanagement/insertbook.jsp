@@ -1,7 +1,6 @@
 <%@page import="entity.Author"%>
 <%@page import="entity.Category"%>
 <%@page import="java.util.List"%>
-<%@page import="javafx.scene.control.Alert"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -14,7 +13,7 @@
 	List<Author> listAuthor = (List<Author>) request.getAttribute("listAuthor");
 %>
 <jsp:include page="../header.jsp">
-	<jsp:param value="Thêm user" name="title" />
+	<jsp:param value="Thêm truyện" name="title" />
 </jsp:include>
 <link href="<%=request.getContextPath()%>/css/usermanagement.css"
 	rel="stylesheet">
@@ -106,7 +105,7 @@
 									</div>
 									<div class="control-group">
 										<label class="control-label">Giới thiệu</label>
-										<textarea rows="5" cols="20" name="introduction"></textarea>
+										<textarea rows="5" class="span6" name="introduction"></textarea>
 									</div>
 									<div class="control-group">
 										<label class="control-label">Giá</label> <input type="number"

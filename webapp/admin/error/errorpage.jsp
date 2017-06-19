@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link
+	href="<%=request.getContextPath()%>/admin/assets/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
 <title>Error</title>
 </head>
 <style>
@@ -12,28 +15,13 @@ body {
 	margin: auto;
 }
 
-button {
-	background: orange;
-	border: none;
-	color: white;
-	width: 60px;
-	height: 30px;
-	border-radius: 2px 2px 2px 2px;
-	margin-top: -40px;
-}
-
 a {
 	text-decoration: none;
+	color: infotext;
 }
 
 a:hover {
 	color: blue;
-}
-
-button:hover {
-	color: rgb(255, 255, 180);
-	box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
-		rgba(0, 0, 0, 0.19);
 }
 </style>
 <body>
@@ -58,11 +46,17 @@ button:hover {
 					out.print(request.getAttribute("error"));
 			%>
 		</p>
+		<div class="clearfix"></div>
 		<p align="center">
-			<a
+			<a class=""
 				<%if (request.getAttribute("link") != null)
-				out.print("href=\"" + request.getContextPath() + "/" + request.getAttribute("link") + "\"");%>><button>Back</button></a>
+				out.print("href=\"" + request.getContextPath() + "/" + request.getAttribute("link") + "\"");%>><button
+					class="btn btn-warning">Back</button></a>
 		</p>
 	</div>
+	<script
+		src="<%=request.getContextPath()%>/admin/js/jquery-1.8.2.min.js"></script>
+	<script
+		src="<%=request.getContextPath()%>/admin/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

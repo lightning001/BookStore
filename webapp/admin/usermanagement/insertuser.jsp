@@ -1,4 +1,3 @@
-<%@page import="javafx.scene.control.Alert"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -14,11 +13,6 @@
 	}
 	int currentPage = 1;
 %>
-<script type="text/javascript">
-	function show() {
-		alert("Không có quyền truy cập");
-	}
-</script>
 <jsp:include page="../header.jsp">
 	<jsp:param value="Thêm user" name="title" />
 </jsp:include>

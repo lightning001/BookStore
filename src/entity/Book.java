@@ -21,14 +21,15 @@ public class Book implements java.io.Serializable {
 	private String linkImg;
 	private String country;
 	private Float price;
+	private Boolean checked;
 	private Integer likes;
 	private Integer subcribe;
 	private Set<Exchanges> exchangeses = new HashSet<>(0);
-	private Set<Library> likelib = new HashSet<Library>(0);
-	private Set<Chapter> chapters = new HashSet<Chapter>(0);
-	private Set<Accounts> book_author = new HashSet<Accounts>(0);
-	private Set<Library> subcribelib = new HashSet<Library>(0);
-	private Set<Category> categories = new HashSet<Category>(0);
+	private Set<Library> likelib = new HashSet<>(0);
+	private Set<Chapter> chapters = new HashSet<>(0);
+	private Set<Accounts> book_author = new HashSet<>(0);
+	private Set<Library> subcribelib = new HashSet<>(0);
+	private Set<Category> categories = new HashSet<>(0);
 
 	public Book() {
 	}
@@ -38,8 +39,8 @@ public class Book implements java.io.Serializable {
 		this.postDate = postDate;
 	}
 
-	public Book(String bookName, String slug, Boolean state, Integer age, String introduction, Date postDate,String linkImg,
-			String country, Float price, Integer likes, Set<Chapter> chapters,
+	public Book(String bookName, String slug, Boolean state, Integer age, String introduction, Date postDate,
+			String linkImg, String country, Float price, Boolean checked, Integer likes, Set<Chapter> chapters,
 			Set<Accounts> book_author, Set<Category> categories) {
 		super();
 		this.bookName = bookName;
@@ -51,6 +52,7 @@ public class Book implements java.io.Serializable {
 		this.linkImg = linkImg;
 		this.country = country;
 		this.price = price;
+		this.checked = checked;
 		this.likes = likes;
 		this.chapters = chapters;
 		this.book_author = book_author;
@@ -58,9 +60,9 @@ public class Book implements java.io.Serializable {
 	}
 
 	public Book(Integer bookId, String bookName, String slug, Boolean state, Integer age, String introduction,
-			Date postDate,String linkImg, String country, Float price, Integer likes, Integer subcribe,
-			Set<Exchanges> exchangeses, Set<Library> likelib, Set<Chapter> chapters, Set<Accounts> book_author,
-			Set<Library> subcribelib, Set<Category> categories) {
+			Date postDate, String linkImg, String country, Float price, Boolean checked, Integer likes,
+			Integer subcribe, Set<Exchanges> exchangeses, Set<Library> likelib, Set<Chapter> chapters,
+			Set<Accounts> book_author, Set<Library> subcribelib, Set<Category> categories) {
 		super();
 		this.bookId = bookId;
 		this.bookName = bookName;
@@ -72,6 +74,7 @@ public class Book implements java.io.Serializable {
 		this.linkImg = linkImg;
 		this.country = country;
 		this.price = price;
+		this.checked = checked;
 		this.likes = likes;
 		this.subcribe = subcribe;
 		this.exchangeses = exchangeses;
@@ -82,8 +85,8 @@ public class Book implements java.io.Serializable {
 		this.categories = categories;
 	}
 
-	public Book(String bookName, String slug, Boolean state, Integer age, String introduction, Date postDate,String linkImg,
-			String country, Float price, Integer likes, Integer subcribe,
+	public Book(String bookName, String slug, Boolean state, Integer age, String introduction, Date postDate,
+			String linkImg, String country, Float price, Integer likes, Boolean checked, Integer subcribe,
 			Set<Exchanges> exchangeses, Set<Library> likelib, Set<Chapter> chapters, Set<Accounts> book_author,
 			Set<Library> subcribelib, Set<Category> categories) {
 		super();
@@ -97,6 +100,7 @@ public class Book implements java.io.Serializable {
 		this.country = country;
 		this.price = price;
 		this.likes = likes;
+		this.checked = checked;
 		this.subcribe = subcribe;
 		this.exchangeses = exchangeses;
 		this.likelib = likelib;
@@ -186,6 +190,14 @@ public class Book implements java.io.Serializable {
 		this.price = price;
 	}
 
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+
 	public Integer getLikes() {
 		return likes;
 	}
@@ -273,25 +285,14 @@ public class Book implements java.io.Serializable {
 		builder.append(country);
 		builder.append(", price=");
 		builder.append(price);
+		builder.append(", checked=");
+		builder.append(checked);
 		builder.append(", likes=");
 		builder.append(likes);
 		builder.append(", subcribe=");
 		builder.append(subcribe);
-		builder.append(", exchangeses=");
-		builder.append(exchangeses);
-		builder.append(", likelib=");
-		builder.append(likelib);
-		builder.append(", chapters=");
-		builder.append(chapters);
-		builder.append(", book_author=");
-		builder.append(book_author);
-		builder.append(", subcribelib=");
-		builder.append(subcribelib);
-		builder.append(", categories=");
-		builder.append(categories);
 		builder.append("]");
 		return builder.toString();
 	}
-
 
 }

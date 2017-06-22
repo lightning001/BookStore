@@ -18,8 +18,6 @@
 <jsp:include page="../header.jsp">
 	<jsp:param value="Quản lý Truyện" name="title" />
 </jsp:include>
-<link href="<%=request.getContextPath()%>/css/usermanagement.css"
-	rel="stylesheet">
 <body class="fixed-top">
 	<jsp:include page="../sidebar.jsp"></jsp:include>
 	<div id="main-content">
@@ -41,9 +39,7 @@
 					</div>
 					<!-- END THEME CUSTOMIZER-->
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-					<h3 class="page-title">
-						<small> Quản lý </small> Truyện
-					</h3>
+					<h3 class="page-title">Quản lý Truyện</h3>
 					<ul class="breadcrumb">
 						<li><a href="<%=request.getContextPath()%>/admin/index"><i
 								class="icon-home"></i></a><span class="divider">&nbsp;</span></li>
@@ -84,8 +80,8 @@
 										<%
 											if (!book.getChecked()) {
 										%>
-										<a 
-											href="<%=request.getContextPath()%>/admin/book/checkbook2/<%=book.getBookId()%>"><span
+										<a
+											href="<%=request.getContextPath()%>/admin/book/checkbook2/<%=book.getSlug()%>"><span
 											class="badge badge-warning">Checked</span></a>
 										<%
 											}
@@ -124,7 +120,7 @@
 												<%=book.getExchangeses().size()%></a></li>
 									</ul>
 									<a href="#" class="btn btn-info">Đọc thêm</a> <a
-										href="<%=request.getContextPath()%>/admin/book/edit/<%=book.getBookId()%>"
+										href="<%=request.getContextPath()%>/admin/book/edit/<%=book.getSlug()%>"
 										class="btn btn-warning">Chỉnh sửa</a>
 								</div>
 							</div>
@@ -172,8 +168,48 @@
 						<div class="blog-side-bar widget-body">
 							<h2>Thể loại</h2>
 							<p>
-								<a href="#">Thêm mới</a>
+								<a href="#" data-toggle="modal" data-target="#addcategory">Thêm
+									mới</a>
 							</p>
+							<div id="addcategory" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Thêm thể loại</h4>
+										</div>
+										<div class="modal-body">
+
+											<form class="form-horizontal" method="post"
+												id="formaddcategory">
+												<div class="form-wizard">
+													<div class="control-group">
+														<label class="control-label">Tên thể loại</label> <input
+															type="text" maxlength="100" class="span8"
+															name="categoryName" placeholder="Nhập tên thể loại"
+															required>
+													</div>
+													<div class="control-group">
+														<label class="control-label">Mô tả</label>
+														<textarea rows="6" class="span8" maxlength="2000"
+															name="decription"></textarea>
+													</div>
+													<div class="form-actions clearfix"></div>
+													<input type="reset" class="btn btn-default"
+														value="Nhập lại"> <input type="button"
+														data-dismiss="modal" class="btn btn-default"
+														id="categorysubmit" value="Thêm">
+												</div>
+											</form>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+
 							<ul class="unstyled" id="category_sidebar">
 								<%=lessCategory(listCategory)%>
 							</ul>
@@ -249,7 +285,25 @@
 	<script type="text/javascript">
 		$("#cate_less").click(function() {
 			document.getElementById('category_sidebar').innerHTML = '<%=lessCategory(listCategory)%>';
-						});
+		});
+	</script>
+	<script type="text/javascript">
+	    $("#categorysubmit").click(function(){
+	    $.ajax({
+	        type: 'POST',
+	        url: '<%=request.getContextPath() + "/admin/book/insertcategory"%>',
+			data : $('#formaddcategory').serialize(),
+			success : function(response) {
+				alert("Thêm thể loại thành công");
+				var li = document.createElement("li");
+				li.innerHTML = "<li><a href=\"#\"><i class=\"icon-chevron-right\"></i>" + response + "</a></li>"
+				document.getElementById('category_sidebar').appendChild(li);
+			},
+			error : function() {
+				alert("Thêm thể loại thất bại");
+			}
+		});
+		});
 	</script>
 </body>
 </html>

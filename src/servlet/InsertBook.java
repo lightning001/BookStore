@@ -1,6 +1,5 @@
 package servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
@@ -54,7 +53,7 @@ public class InsertBook extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		try {
-			String uploadPath = getServletContext().getRealPath("") + File.separator + "img" + File.separator + "book";
+			String uploadPath = getServletContext().getRealPath("") + "/img/book";
 			UploadFile upload = new UploadFile(request, response, uploadPath);
 			Hashtable<Object, Object> param = upload.upload(uploadPath);
 			if (param != null) {

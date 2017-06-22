@@ -1,6 +1,6 @@
 package test;
 
-import DAO.StatisticDAO;
+import DAO.SearchDAO;
 import util.HibernateUtils;
 
 /**
@@ -9,9 +9,10 @@ import util.HibernateUtils;
 public class Test {
 
 	public static void main(String[] args) {
-//		Date date = new Date(System.currentTimeMillis());
-//		System.out.println(StatisticDAO.getStatisTicOnMonth(date));
-		System.out.println(StatisticDAO.statisticPeriod("3/2017", "8/2017"));
+		// Date date = new Date(System.currentTimeMillis());
+		// System.out.println(StatisticDAO.getStatisTicOnMonth(date));
+		// System.out.println(StatisticDAO.statisticPeriod("3/2017", "8/2017"));
+		System.out.println(SearchDAO.searchBook("la"));
 		HibernateUtils.shutdown();
 	}
 }

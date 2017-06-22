@@ -37,23 +37,14 @@
 					<!-- END THEME CUSTOMIZER-->
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-						<small> Quản lý </small> Admin
+						 Quản lý Admin
 					</h3>
 					<ul class="breadcrumb">
 						<li><a href="<%=request.getContextPath()%>/admin/index"><i
 								class="icon-home"></i></a><span class="divider">&nbsp;</span></li>
 						<li><a href="#">Quản lý</a> <span class="divider">&nbsp;</span></li>
 						<li><a href="#">Quản lý Admin</a><span class="divider-last">&nbsp;</span></li>
-						<!-- 					<li class="pull-right search-wrap"> -->
-						<!-- 						<form class="hidden-phone" action="search_result.html"> -->
-						<!-- 							<div class="search-input-area"> -->
-						<!-- 								<input id=" " class="search-query" type="text" -->
-						<!-- 									placeholder="Search"> <i class="icon-search"></i> -->
-						<!-- 							</div> -->
-						<!-- 						</form> -->
-						<!-- 					</li> -->
 					</ul>
-					<!-- END PAGE TITLE & BREADCRUMB-->
 				</div>
 			</div>
 			<%

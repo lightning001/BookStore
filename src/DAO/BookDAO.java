@@ -134,6 +134,25 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		}
 	}
 
+	public static Book getBook(String slug) {
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		Book book = null;
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e where e.slug =:slug";
+			Query<Book> query = session.createQuery(hql);
+			query.setParameter("slug", slug);
+			query.setMaxResults(1);
+			book = query.getSingleResult();
+			session.getTransaction().commit();
+			return book;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return null;
+		}
+	}
+
 	public static long getPageCount(int pageSize) {
 		if (pageSize == 0)
 			return 0;

@@ -23,6 +23,22 @@ public class Category implements java.io.Serializable {
 		this.slug = slug;
 	}
 
+	public Category(String categoryName, String slug, String decription) {
+		super();
+		this.categoryName = categoryName;
+		this.slug = slug;
+		this.decription = decription;
+	}
+
+	public Category(Integer categoryId, String categoryName, String slug, String decription, Set<Book> books) {
+		super();
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
+		this.slug = slug;
+		this.decription = decription;
+		this.books = books;
+	}
+
 	public Category(String categoryName, String slug, String decription, Set<Book> books) {
 		this.categoryName = categoryName;
 		this.slug = slug;

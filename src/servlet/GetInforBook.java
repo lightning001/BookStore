@@ -42,8 +42,8 @@ public class GetInforBook extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		try {
-			int id = Integer.parseInt(ParseURI.getParam(request.getRequestURI()));
-			Book book = BookDAO.getBook(id);
+			String slug = ParseURI.getParam(request.getRequestURI());
+			Book book = BookDAO.getBook(slug);
 			List<Category> listCate = CategoryDAO.getAllCategory();
 			List<Author> listAuthor = AuthorDAO.getAllAuthor();
 			request.setAttribute("book", book);

@@ -42,5 +42,8 @@
 <link
 	href="<%=request.getContextPath() %>/admin/assets/jqvmap/jqvmap/jqvmap.css"
 	media="screen" rel="stylesheet" type="text/css" />
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<link href="<%=request.getContextPath()%>/css/usermanagement.css"
+	rel="stylesheet">
 <title>${param.title}</title>
 </head>

@@ -24,7 +24,6 @@ public class CheckBook extends HttpServlet {
 	 */
 	public CheckBook() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -38,8 +37,8 @@ public class CheckBook extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		try {
 			String[] param = ParseURI.getListParam(request.getRequestURI());
-			int id = Integer.parseInt(param[param.length - 1]);
-			Book book = BookDAO.getBook(id);
+			String slug = param[param.length - 1];
+			Book book = BookDAO.getBook(slug);
 			book.setChecked(true);
 			if (BookDAO.update(book)) {
 				if ("checkbook".equals(param[param.length - 2])) {
@@ -55,7 +54,6 @@ public class CheckBook extends HttpServlet {
 				request.getRequestDispatcher("/admin/error/errorpage.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
-			System.out.println(e);
 			e.printStackTrace();
 			request.setAttribute("error", e);
 			request.setAttribute("link", "admin/book/1");

@@ -20,15 +20,32 @@
 				class="icon-bar"></span> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="arrow"></span>
 			</a>
-			<!-- END  NOTIFICATION -->
+
+			<div class="top-nav navbar-form notify-row">
+				<script src="<%=request.getContextPath()%>/js/search.js"></script>
+				<ul class="nav top-menu">
+					<li class="search-wrap">
+						<div class="span4"
+							style="position: relative; display: inline-block;">
+							<!-- style="position: relative; display: inline-block; margin-top: 10px; margin-bottom: 10px; padding: 0"> -->
+							<input type="text" id="search" class="input_search span4"
+								placeholder="Nhập nội dung cần tìm" autocomplete="off" />
+							<div id="search-popup">
+								<ul id="search-list-customer"></ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
 			<div class="top-nav ">
 				<ul class="nav pull-right top-menu">
 					<!-- BEGIN SUPPORT -->
-					<li class="dropdown "><a class="dropdown-toggle element"
+					<li class="dropdown mtop5"><a class="dropdown-toggle element"
 						data-placement="bottom" data-toggle="tooltip" href="#"
 						data-original-title="Chat"> <i class="icon-comments-alt"></i>
 					</a></li>
-					<li class="dropdown "><a class="dropdown-toggle element"
+					<li class="dropdown mtop5"><a class="dropdown-toggle element"
 						data-placement="bottom" data-toggle="tooltip" href="#"
 						data-original-title="Help"> <i class="icon-headphones"></i>
 					</a></li>
@@ -36,7 +53,7 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> <img
-							style="height: 30px; width: 30px;"
+							style="max-height: 30px; max-width: 30px;"
 							src="<%=request.getContextPath() + manager.getAccounts().getLinkImg()%>"
 							alt=""> <span class="username"><%=manager.getAccounts().getName()%></span>
 							<b class="caret"></b>
@@ -95,7 +112,9 @@
 					<li><a class=""
 						href="<%=request.getContextPath()%>/admin/book/1">Danh sách
 							truyện</a></li>
-					<li><a class="" href="<%=request.getContextPath()%>/admin/book/checklist">Kiểm duyệt truyện</a></li>
+					<li><a class=""
+						href="<%=request.getContextPath()%>/admin/book/checklist">Kiểm
+							duyệt truyện</a></li>
 				</ul></li>
 			<li><a class=""
 				href="<%=request.getContextPath()%>/admin/logout"><span
@@ -104,6 +123,9 @@
 		<!-- END SIDEBAR MENU -->
 	</div>
 </div>
+<div class="space15"></div>
+<div class="space15"></div>
+<div class="space15"></div>
 <%
 	}
 %>

@@ -1,5 +1,6 @@
 package DAO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +12,15 @@ import org.hibernate.query.Query;
 import entity.Category;
 import util.HibernateUtils;
 
-public class CategoryDAO {
+public class CategoryDAO extends ObjectDAO implements Serializable {
+	private static final long serialVersionUID = -1512150533360333170L;
+
 	public static List<Category> getAllCategory() {
 		List<Category> category = new ArrayList<Category>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Category.class.getName()+ " c order by c.categoryName asc";
+			String hql = "from " + Category.class.getName() + " c order by c.categoryName asc";
 			Query<Category> query = session.createQuery(hql);
 			category = query.list();
 			session.getTransaction().commit();

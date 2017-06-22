@@ -77,7 +77,7 @@
 												<%=titles%>
 											</h4>
 											<span class="tools"><a
-												href="<%=request.getContextPath()%>/admin/book/checkbook/<%=book.getBookId()%>"
+												href="<%=request.getContextPath()%>/admin/book/checkbook/<%=book.getSlug()%>"
 												class="icon-ok red-color"></a> </span>
 										</div>
 										<div class="widget-body">

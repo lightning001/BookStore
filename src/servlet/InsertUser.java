@@ -1,6 +1,5 @@
 package servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Hashtable;
@@ -35,6 +34,7 @@ public class InsertUser extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
@@ -44,14 +44,14 @@ public class InsertUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		String object = ParseURI.getParam(request.getRequestURI());
 		try {
-			String uploadPath = getServletContext().getRealPath("") + File.separator + "img" + File.separator + "upload"
-					+ File.separator + "profile";
+			String uploadPath = getServletContext().getRealPath("") + "/img/upload/profile";
 			UploadFile upload = new UploadFile(request, response, uploadPath);
 			Hashtable<Object, Object> param = upload.upload(uploadPath);
 			if (param != null) {

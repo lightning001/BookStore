@@ -1,6 +1,5 @@
 package servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -41,6 +40,7 @@ public class UpdateUser extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -50,14 +50,14 @@ public class UpdateUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
-			String uploadPath = getServletContext().getRealPath("") + File.separator + "img" + File.separator + "upload"
-					+ File.separator + "profile";
+			String uploadPath = getServletContext().getRealPath("") + "/img/upload/profile";
 			UploadFile upload = new UploadFile(request, response, uploadPath);
 			Hashtable<Object, Object> param = upload.upload(uploadPath);
 			if (param != null) {
@@ -93,7 +93,7 @@ public class UpdateUser extends HttpServlet {
 					boolean gender = Boolean.parseBoolean((String) param.get("gender"));
 					Float money = Float.parseFloat((String) param.get("money"));
 					String level = old.getLevels() + "";
-					if (param.get("levels") != null && !"".equals((String) param.get("levels")))
+					if (param.get("levels") != null && !"".equals(param.get("levels")))
 						level = (String) param.get("levels");
 					String linkImg = (String) param.get("linkfileAfterUpload");
 					if (linkImg == null || "".equals(linkImg)) {

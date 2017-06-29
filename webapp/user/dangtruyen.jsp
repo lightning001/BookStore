@@ -13,7 +13,7 @@
 <link href="css/chosen.css" rel="stylesheet">
 <link rel="icon" type="image/png" href="img/favicon.png" />
 <link href="https://plus.google.com/103281900225927837176/" rel="author">
-<script src="js/jquery-1.12.4.js"</script>
+<script src="js/jquery-1.12.4.js"></script>
 <script src="js/chosen.jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/csrf.js"></script>

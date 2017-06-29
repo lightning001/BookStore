@@ -3,9 +3,9 @@
 <!-- Generated May 22, 2017 7:24:23 PM by Hibernate Tools 5.2.3.Final -->
 <hibernate-mapping auto-import="true" default-access="property"
 	default-cascade="none" default-lazy="true">
-	<class catalog="bookweb" dynamic-insert="true" dynamic-update="false"
+	<class catalog="bookweb" dynamic-insert="true" dynamic-update="true"
 		mutable="true" name="entity.Manager" optimistic-lock="version"
-		polymorphism="implicit" select-before-update="false" table="manager">
+		polymorphism="implicit" select-before-update="false" table="manager" >
 		<id name="accountId" type="int">
 			<column name="accountID" />
 			<generator class="foreign">

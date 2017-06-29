@@ -52,6 +52,14 @@
 			optimistic-lock="true" type="java.lang.Integer" unique="false">
 			<column name="levels" />
 		</property>
+		<property generated="never" lazy="false" name="isActive"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="isActive" />
+		</property>
+		<property generated="never" lazy="false" name="activeCode"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="200" name="activeCode" />
+		</property>
 		<set embed-xml="true" fetch="select" inverse="true" lazy="true"
 			mutable="true" name="exchangeses" optimistic-lock="true" sort="unsorted"
 			table="exchanges">

@@ -22,6 +22,8 @@ public class Accounts implements java.io.Serializable {
 	private Date createDate;
 	private Float money;
 	private Integer levels;
+	private Boolean isActive;
+	private String activeCode;
 	private Set<Exchanges> exchangeses = new HashSet<Exchanges>(0);
 	private Set<Library> libraries = new HashSet<Library>(0);
 	private Set<Book> books = new HashSet<Book>(0);
@@ -36,8 +38,6 @@ public class Accounts implements java.io.Serializable {
 		this.createDate = createDate;
 	}
 
-	
-	
 	public Accounts(String name, String username, Boolean gender, String email, String linkImg, String passwords) {
 		super();
 		this.name = name;
@@ -48,12 +48,12 @@ public class Accounts implements java.io.Serializable {
 		this.passwords = passwords;
 	}
 
-	public Accounts(String name, String username, Boolean gender, String email, String linkImg, String passwords, Boolean isLock,
-			Date createDate, Float money, Integer levels) {
+	public Accounts(String name, String username, Boolean gender, String email, String linkImg, String passwords,
+			Boolean isLock, Date createDate, Float money, Integer levels) {
 		super();
 		this.name = name;
 		this.gender = gender;
-		this.username=username;
+		this.username = username;
 		this.email = email;
 		this.linkImg = linkImg;
 		this.passwords = passwords;
@@ -63,8 +63,8 @@ public class Accounts implements java.io.Serializable {
 		this.levels = levels;
 	}
 
-	public Accounts(Integer accountId, String name, String username, Boolean gender, String email, String linkImg, String passwords,
-			Boolean isLock, Date createDate, Float money, Integer levels, Set<Exchanges> exchangeses,
+	public Accounts(Integer accountId, String name, String username, Boolean gender, String email, String linkImg,
+			String passwords, Boolean isLock, Date createDate, Float money, Integer levels, Set<Exchanges> exchangeses,
 			Set<Library> libraries, Set<Book> books) {
 		super();
 		this.accountId = accountId;
@@ -78,6 +78,45 @@ public class Accounts implements java.io.Serializable {
 		this.createDate = createDate;
 		this.money = money;
 		this.levels = levels;
+		this.exchangeses = exchangeses;
+		this.libraries = libraries;
+		this.books = books;
+	}
+
+	public Accounts(String name, String username, Boolean gender, String email, String linkImg, String passwords,
+			Boolean isLock, Date createDate, Float money, Integer levels, boolean isActive, String activeCode) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.gender = gender;
+		this.email = email;
+		this.linkImg = linkImg;
+		this.passwords = passwords;
+		this.isLock = isLock;
+		this.createDate = createDate;
+		this.money = money;
+		this.levels = levels;
+		this.isActive = isActive;
+		this.activeCode = activeCode;
+	}
+
+	public Accounts(Integer accountId, String name, String username, Boolean gender, String email, String linkImg,
+			String passwords, Boolean isLock, Date createDate, Float money, Integer levels, boolean isActive,
+			String activeCode, Set<Exchanges> exchangeses, Set<Library> libraries, Set<Book> books) {
+		super();
+		this.accountId = accountId;
+		this.name = name;
+		this.username = username;
+		this.gender = gender;
+		this.email = email;
+		this.linkImg = linkImg;
+		this.passwords = passwords;
+		this.isLock = isLock;
+		this.createDate = createDate;
+		this.money = money;
+		this.levels = levels;
+		this.isActive = isActive;
+		this.activeCode = activeCode;
 		this.exchangeses = exchangeses;
 		this.libraries = libraries;
 		this.books = books;
@@ -118,7 +157,6 @@ public class Accounts implements java.io.Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 
 	public String getUsername() {
 		return username;
@@ -194,6 +232,22 @@ public class Accounts implements java.io.Serializable {
 
 	public void setLinkImg(String linkImg) {
 		this.linkImg = linkImg;
+	}
+
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+	public String getActiveCode() {
+		return activeCode;
+	}
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public void setActiveCode(String activeCode) {
+		this.activeCode = activeCode;
 	}
 
 	@Override

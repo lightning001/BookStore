@@ -118,7 +118,7 @@ public class AccountDAO extends ObjectDAO implements Serializable {
 			Query<Long> query = session.createQuery(hql);
 			query.setParameter("level", levelAccount);
 			query.setMaxResults(1);
-			count = (long) query.uniqueResult();
+			count = query.uniqueResult();
 			session.getTransaction().commit();
 			if (count % itemQuantity == 0) {
 				count = count / itemQuantity;

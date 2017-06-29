@@ -28,6 +28,22 @@ public class Manager implements java.io.Serializable {
 
 	public Manager(Accounts accounts) {
 		this.accounts = accounts;
+		this.accountId = accounts.getAccountId();
+		switch (accounts.getLevels()) {
+		case 1:
+			setOffice("admin");
+			break;
+		case 2:
+			setOffice("mod");
+			break;
+		case 3:
+			setOffice("publisher");
+			break;
+
+		default:
+			setOffice("");
+			break;
+		}
 	}
 
 	public Manager(Accounts accounts, String office) {

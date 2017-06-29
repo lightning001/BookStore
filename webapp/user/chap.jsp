@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,7 +8,7 @@
 <meta property="fb:app_id" content="376408899112473" />
 <meta name="description"
 	content="
-    Đại Chúa Tể Chương 1432: Phù Đồ Huyền ra tay. Tác Giả: Thiên Tàm Thổ Đậu ở TruyệnYY.com, kho truyện được tuyển chọn và biên tập tốt nhất.
+    Đại Chúa Tể Chương 1462: Phù Đồ Huyền ra tay. Tác Giả: Thiên Tàm Thổ Đậu ở TruyệnYY.com, kho truyện được tuyển chọn và biên tập tốt nhất.
 ">
 <meta name="keywords"
 	content="Doc truyen online, truyen kiem hiep, truyen tien hiep, truyen sac hiep, truyen ngon tinh, truyen trinh tham, vong du, truyen convert full text">
@@ -16,7 +17,7 @@
 	href="http://fonts.googleapis.com/css?family=Patrick+Hand|Noticia+Text:400,400italic&subset=latin,vietnamese"
 	rel='stylesheet' type='text/css'>
 <link href="css/bootstrap-modal.css" rel="stylesheet">
-<title>Đại Chúa Tể - Chương 1432: Phù Đồ Huyền ra tay | TruyệnYY</title>
+<title>Đại Chúa Tể - Chương 1462: Phù Đồ Huyền ra tay | MyBook</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/yamm.css" rel="stylesheet">
@@ -37,19 +38,21 @@ body {
 }
 </style>
 <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37191528-1']);
-        _gaq.push(['_trackPageview']);
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-37191528-1' ]);
+	_gaq.push([ '_trackPageview' ]);
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
 </head>
 <body>
 	<div class="yamm navbar navbar-fixed-top">
@@ -58,7 +61,7 @@ body {
 				<a class="btn btn-navbar" data-toggle="collapse"
 					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand truyenyy-logo" href="#">TruyệnYY</a>
+				</a> <a class="brand truyenyy-logo" href="index.jsp">TruyệnYY</a>
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="active hide-x"><a href="javascript:"
@@ -144,12 +147,21 @@ body {
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"><i class="icon-user"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="login.html"><i class="icon-arrow-right"></i>
+								<li><a href="login.jsp"><i class="icon-arrow-right"></i>
 										Đăng Nhập</a></li>
-								<li><a href="register.html"><i class="icon-refresh"></i>
+								<li><a href="register.jsp"><i class="icon-refresh"></i>
 										Đăng Ký</a></li>
+																	<li><a href="user.jsp"><i class="fa fa-address-card-o"
+									style="color: green;"></i>Trang User</a></li>
+							<li><a href="cart.jsp"><i class="fa fa-shopping-cart"
+									style="color: red;"></i> Cart</a></li>
+							<li><a href="dangtruyen.jsp"><i
+									class="fa fa-address-card-o" style="color: green;"></i> Đăng
+									truyện</a></li>
+										
 							</ul></li>
 					</ul>
+
 
 					<form class="navbar-search form-search pull-right"
 						action="http://truyenyy.com/search/" method="GET">
@@ -159,6 +171,7 @@ body {
 							<button class="btn" type="submit" value="">
 								<i class="icon-search"></i>
 							</button>
+
 						</div>
 					</form>
 				</div>
@@ -194,7 +207,7 @@ body {
 						</div>
 					</li>
 					<li class="active"><a href="#"
-						title="Chương 1432: Phù Đồ Huyền ra tay"><strong>#
+						title="Chương 1462: Phù Đồ Huyền ra tay"><strong>#
 								1434</strong></a></li>
 				</ul>
 
@@ -204,14 +217,14 @@ body {
 					</div>
 				</a>
 				<script type="text/javascript">
-				$(function(){
-					$('.close-ads').click(function(){
-						$('.pre_btn_ads').hide();
-						$('.next_btn_ads').hide();
-						$(this).hide();
-						return false;
+					$(function() {
+						$('.close-ads').click(function() {
+							$('.pre_btn_ads').hide();
+							$('.next_btn_ads').hide();
+							$(this).hide();
+							return false;
+						});
 					});
-				});
 				</script>
 				<a href="javascript:">
 					<div class="next_btn">
@@ -222,7 +235,7 @@ body {
 				<div class="container-fluid chap_content">
 					<div id="noidungtruyen">
 						<h1 style="text-align: center; text-transform: uppercase;">Chương
-							1432: Phù Đồ Huyền ra tay</h1>
+							1462: Phù Đồ Huyền ra tay</h1>
 						<hr class="start-chap">
 						<div class="text-truyen" id="id_noidung_chuong"
 							style="margin: 50px;">
@@ -548,18 +561,18 @@ body {
 				</form>
 				<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
 				<script type="text/javascript">
-					$.post( '/ajax/hit/',
-					{ hitcount_pk : '138' },
-					function(data, status) {
+					$.post('/ajax/hit/', {
+						hitcount_pk : '138'
+					}, function(data, status) {
 						if (data.status == 'error') {
 							// do something for error?
 						}
-					},
-					'json');
-								
-					$(function () {
+					}, 'json');
 
-						$('.icon-sign').css('margin-top', $(window).height()/2 + 'px');
+					$(function() {
+
+						$('.icon-sign').css('margin-top',
+								$(window).height() / 2 + 'px');
 						// init font, fontsize, progressbar
 						var init_bg = localStorage.getItem('background-color');
 						var init_font = localStorage.getItem('font-truyen');
@@ -568,64 +581,82 @@ body {
 
 						if (init_bg) {
 							$('body').css('background-color', init_bg);
+						} else {
+							$('body').css('background-color', '#eee');
 						}
-						else {$('body').css('background-color', '#eee');}
 						if (init_font) {
-							$('#noidungtruyen').css('font-family', init_font+', sans serif');
+							$('#noidungtruyen').css('font-family',
+									init_font + ', sans serif');
 						}
 						if (init_fontsize) {
-							$('#noidungtruyen').css('font-size', init_fontsize+'px');
+							$('#noidungtruyen').css('font-size',
+									init_fontsize + 'px');
 						}
-						
-							$('#bottom_progressbar').hide();
+
+						$('#bottom_progressbar').hide();
 
 						var go2top = $('.go_to_top');
 
-						go2top.click(function () {
+						go2top.click(function() {
 							$.scrollTo('0', 800);
 							return false;
 						});
 
-
-						$(document).keyup(function (e) {
-							if (e.keyCode == 37){
-								var x = $(document).scrollTop() - ($(window).height() - 80);
-								if (x < 0) {
-									x = 0;
-								}
-								$.scrollTo(x, 100);
-							}
-							else if (e.keyCode == 39) {
-								$.scrollTo($(document).scrollTop() + ($(window).height() - 80), 100);
-							}
-						});
-
+						$(document).keyup(
+								function(e) {
+									if (e.keyCode == 37) {
+										var x = $(document).scrollTop()
+												- ($(window).height() - 80);
+										if (x < 0) {
+											x = 0;
+										}
+										$.scrollTo(x, 100);
+									} else if (e.keyCode == 39) {
+										$.scrollTo($(document).scrollTop()
+												+ ($(window).height() - 80),
+												100);
+									}
+								});
 
 						var godown = $('.next_btn');
 						var gotop = $('.pre_btn');
-						godown.click(function () {
-							$.scrollTo($(document).scrollTop() + ($(window).height() - $(".navbar").height() - 40), 100);
-						});
-						gotop.click(function () {
-							var x = $(document).scrollTop() - ($(window).height() - $(".navbar").height() - 40);
-							if(x<0){x=0;}
+						godown
+								.click(function() {
+									$
+											.scrollTo(
+													$(document).scrollTop()
+															+ ($(window)
+																	.height()
+																	- $(
+																			".navbar")
+																			.height() - 40),
+													100);
+								});
+						gotop.click(function() {
+							var x = $(document).scrollTop()
+									- ($(window).height()
+											- $(".navbar").height() - 40);
+							if (x < 0) {
+								x = 0;
+							}
 							$.scrollTo(x, 100);
 						});
 					});
 
-					function changeFont(font_name){
-						$('#noidungtruyen').css('font-family', font_name+', sans-serif');
+					function changeFont(font_name) {
+						$('#noidungtruyen').css('font-family',
+								font_name + ', sans-serif');
 						localStorage.setItem('font-truyen', font_name);
 						return false;
 					}
 
-					function changeFontSize(font_size){
-						$('#noidungtruyen').css('font-size', font_size+'px');
+					function changeFontSize(font_size) {
+						$('#noidungtruyen').css('font-size', font_size + 'px');
 						localStorage.setItem('font-size', font_size);
 						return false;
 					}
 
-					function changeBG(color){
+					function changeBG(color) {
 						$('body').css('background-color', color);
 						localStorage.setItem('background-color', color);
 						return false;
@@ -636,21 +667,19 @@ body {
 						prgb.toggle();
 						if (prgb.is(':hidden')) {
 							localStorage.setItem('progress-bar', 0);
-						}
-						else
+						} else
 							localStorage.setItem('progress-bar', 1);
 
 						return false;
 					}
 
-					$('.slider-input').keyup(function(){
+					$('.slider-input').keyup(function() {
 						$('.slider').val($(this).val());
 					});
 
-					$('.slider').change(function(){
+					$('.slider').change(function() {
 						$('.slider-input').val($(this).val());
 					})
-
 				</script>
 				<script>
 				(function (d, s, id) {

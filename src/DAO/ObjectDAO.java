@@ -31,7 +31,7 @@ public abstract class ObjectDAO implements Serializable {
 		Session session = HibernateUtils.getSessionFactory().openSession();
 		try {
 			session.beginTransaction();
-			session.save(object);
+			session.saveOrUpdate(object);
 			session.getTransaction().commit();
 			return true;
 		} catch (Exception e) {
@@ -47,6 +47,7 @@ public abstract class ObjectDAO implements Serializable {
 			session.beginTransaction();
 			session.delete(object);
 			session.getTransaction().commit();
+			session.clear();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

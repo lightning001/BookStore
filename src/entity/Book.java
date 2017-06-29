@@ -295,4 +295,15 @@ public class Book implements java.io.Serializable {
 		return builder.toString();
 	}
 
+	public int getNewestChapter() {
+		if (chapters.size() > 0) {
+			int max = Integer.MIN_VALUE;
+			for (Chapter c : chapters) {
+				if (max < c.getOrders())
+					max = c.getOrders();
+			}
+			return max;
+		}
+		return 0;
+	}
 }

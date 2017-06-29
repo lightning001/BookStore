@@ -104,7 +104,7 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName() + " e order by e.postDate desc";
+			String hql = "from " + Book.class.getName() + " e join e.chapters c order by e.postDate desc, c.order desc";
 			Query<Book> query = session.createQuery(hql);
 			book = query.list();
 			session.getTransaction().commit();
@@ -193,6 +193,102 @@ public class BookDAO extends ObjectDAO implements Serializable {
 			session.getTransaction().rollback();
 		}
 		return listBook;
+	}
+
+	public static List<Book> getLikeLib(int accountId) {
+		List<Book> accounts = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName()
+					+ " e join e.libraries l where e.accountId=:id and e.id = l.accounts.accountId";
+			Query<Book> query = session.createQuery(hql);
+			query.setParameter("id", accountId);
+			accounts = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return accounts;
+	}
+
+	public static List<Book> getListAgeDown(int age) {
+		List<Book> listBook = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e where e.age<" + age + " order by e.bookName asc";
+			Query<Book> query = session.createQuery(hql);
+			listBook = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return listBook;
+	}
+
+	public static List<Book> getListAgeUp(int age) {
+		List<Book> listBook = new ArrayList<Book>();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Book.class.getName() + " e where e.age>" + age + " order by e.bookName asc";
+			Query<Book> query = session.createQuery(hql);
+			listBook = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+		return listBook;
+	}
+
+	private static List<Book> listBook;
+	private static List<Book> likelistBook;
+
+	// TẠO RA DANH SÁCH SAN PHẨM TRONG GIỎ HÀNG
+	public static List<Book> addListBookt() {
+		if (listBook == null)
+			listBook = new ArrayList<Book>();
+
+		return listBook;
+
+	}
+
+	// TẠO RA DANH SÁCH YÊU THÍCH
+	public static List<Book> likeListBookt() {
+		if (likelistBook == null)
+			likelistBook = new ArrayList<Book>();
+
+		return likelistBook;
+
+	}
+
+	// HÀM BỎ THÍCH 1 BOOK TRONG DS
+	public static List<Book> unLikeBook(int id) {
+		for (int s = 0; s < likelistBook.size(); s++) {
+			if (likelistBook.get(s).getBookId() == id) {
+				likelistBook.remove(s);
+
+			}
+		}
+		return likelistBook;
+
+	}
+
+	// HÀM XÓA SẢN PHẨM TRONG GIỎ HÀNG
+	public static List<Book> delete(int id) {
+		for (int s = 0; s < addListBookt().size(); s++) {
+			if (addListBookt().get(s).getBookId() == id) {
+				addListBookt().remove(s);
+			}
+		}
+		return addListBookt();
+
 	}
 
 }

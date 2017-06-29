@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.AccountDAO;
 import DAO.AuthorDAO;
+import DAO.ManagerDAO;
 import entity.Accounts;
 import entity.Author;
+import entity.Manager;
 import util.ParseURI;
 
 /**
@@ -85,8 +87,9 @@ public class InsertUser extends HttpServlet {
 						level = "3";
 					int lv = Integer.parseInt(level);
 					account.setLevels(lv);
-					// Manager manager = new Manager(account);
-					if (AccountDAO.insert(account)) {
+					account.setIsActive(true);
+					Manager manager = new Manager(account);
+					if (ManagerDAO.insert(manager)) {
 						request.getRequestDispatcher("/admin/user/administrator/1").forward(request, response);
 						return;
 					}

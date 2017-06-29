@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -11,7 +13,7 @@
 <link rel="alternate" type="application/atom+xml"
 	title="Đọc Truyện Online - Truyện Kiếm Hiệp"
 	href="http://feeds.feedburner.com/truyenyy">
-<title>Truyện Hot 24h - Đọc truyện online | TruyệnYY</title>
+<title>Truyện Hot 24h - Đọc truyện online | MyBook</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/yamm.css" rel="stylesheet">
@@ -31,161 +33,25 @@ body {
 }
 </style>
 <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37191528-1']);
-        _gaq.push(['_trackPageview']);
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-37191528-1' ]);
+	_gaq.push([ '_trackPageview' ]);
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
 </head>
 <body>
 
-	<div class="yamm navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand truyenyy-logo" href="index.html">TruyệnYY</a>
-				<div class="nav-collapse">
-					<ul class="nav">
-						<li class="active"><a href="index.html"><i
-								class="icon-home"></i> Trang Chủ</a></li>
-						<li class="dropdown"><a href="javascript:"
-							class="dropdown-toggle" data-toggle="dropdown"><i
-								class="icon-book"></i> Danh Mục<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li class="yamm-content">
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="all"><a href="#">Tất
-												cả Thể Loại</a></li>
-										<li><input type="hidden" value="1"><a href="#">Kiếm
-												Hiệp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="2"><a href="#">Tiên
-												Hiệp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="3"><a href="#">Huyển
-												Ảo</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="4"><a href="#">Sắc
-												Hiệp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="7"><a href="#">Đô
-												Thị</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="26"><a href="#">Võng
-												Du</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="5"><a href="#">Xuyên
-												Không</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="6"><a href="#">Dị
-												Giới</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="8"><a href="#">Dị
-												Năng</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="10"><a href="#">Huyền
-												Huyễn</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="11"><a href="#">Khoa
-												Huyễn</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="12"><a href="#">Tu
-												Chân</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="13"><a href="#">Lịch
-												Sử Quân Sự</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="14"><a href="#">Viễn
-												Tưởng</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="15"><a href="#">Trinh
-												Thám</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="16"><a href="#">Ngôn
-												Tình</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="19"><a href="#">Quan
-												Trường</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="17"><a href="#">Truyện
-												Teen</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="20"><a href="#">Thám
-												Hiểm</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="21"><a href="#">Kỳ
-												Bí</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="22"><a href="#">Ma
-												Pháp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="24"><a href="#">Quỷ
-												Tu</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="25"><a href="#">Cổ
-												Đại</a></li>
-									</ul>
-								</li>
-							</ul></li>
-					</ul>
 
-					<ul class="nav pull-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><i class="icon-user"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="login.html"><i class="icon-arrow-right"></i>
-										Đăng Nhập</a></li>
-								<li><a href="register.html"><i class="icon-refresh"></i>
-										Đăng Ký</a></li>
-							</ul></li>
-					</ul>
-
-					<form class="navbar-search form-search pull-right"
-						action=" search/" method="GET">
-						<div class="input-append">
-							<input type="text" name="q" class="search-query span2"
-								placeholder="Nhập tên truyện">
-							<button class="btn" type="submit" value="">
-								<i class="icon-search"></i>
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="container">
 		<div class="row">
@@ -195,7 +61,7 @@ body {
 						<ul class="nav nav-list">
 							<li class="YY"><a href="index.html">Trang Chủ</a></li>
 							<li class="moi"><a href="#">Truyện Mới Nhất</a></li>
-							<li class="hot"><a href="#">Truyện Hot Nhất</a></li>
+							<li class="hot.jsp"><a href="#">Truyện Hot Nhất</a></li>
 							<li class="hay"><a href="#">Truyện Hay Nhất</a></li>
 							<li class="rd"><a href="#">Truyện Ngẫu Nhiên</a></li>
 							<li class="divider"></li>
@@ -455,78 +321,42 @@ body {
 
 
 				<div class="clearfix"></div>
-				<hr />
 
-				<div class="row footer">
-					<div class="inner span3">
-						<h3>Đọc Truyện Online</h3>
-						<ul>
-							<li><a href="#">Danh Mục</a></li>
-							<li><a href="#">Võng Du</a></li>
-							<li><a href="#">Huyền Ảo</a></li>
-							<li><a href="#">Trinh Thám</a></li>
-							<li><a href="#">Truyện Teen</a></li>
-							<li><a href="#">Cổ Đại</a></li>
-							<li><a href="#">Xuyên Không</a></li>
-						</ul>
-					</div>
-					<div class="inner span3">
-						<h3>Truyện Kiếm Hiệp</h3>
-						<div style="padding-right: 10px; font-size: 11px;">
-							<a href="#" title="dinh cap luu manh">dinh cap luu manh</a> <a
-								href="#" title="dau pha thuong khung"><span
-								style="font-size: 12px;">dau pha thuong khung</span></a> <a href="#"
-								title="yeu than ky">yeu than ky</a> <a href="#"
-								title="pham nhan tu tien"><span style="font-size: 13px;">pham
-									nhan tu tien</span></a> <a href="#">kiem dong cuu thien</a> <a href="#"
-								title="thieu gia bi bo roi"><span style="font-size: 13px;">thieu
-									gia bi bo roi</span></a> <a href="#" title="vu cuc thien ha">vu cuc
-								thien ha</a> <a href="#" title="tao hoa chi mon">tao hoa chi mon</a>
-							<a href="#" title="truyen kiem hiep"><span
-								style="font-size: 13px;">truyen kiem hiep</span></a> <a href="#"
-								title="bach luyen thanh tien"><span style="font-size: 12px;">bach
-									luyen thanh tien</span></a> <a href="#" title="tien nghich">tien
-								nghich</a> <a href="#" title="sat than">sat than</a> <a href="#"
-								title="ma thien ky">ma thien ky</a> <a href="#"
-								title="dai chua te">dai chua te</a> <a href="index.html"
-								title="truyenyy">N.T.L</a> <a href="#">ngao the cuu trong
-								thien</a>
-						</div>
-					</div>
-					<div class="inner span3 hide-x">
-						<h3>Liên Kết</h3>
-						<ul>
-							<li><a href="#" target="_blank">truyenyy iOS</a></li>
-							<li><a href="#" target="_blank">truyenyy android</a></li>
-							<li><a href="#" target="_blank">truyenyy extension</a></li>
-							<li><a href="#" target="_blank">thanh toan bao kim</a></li>
-							<li><a href="#" target="_blank">Feeds</a></li>
-							<li><a href="#" target="_blank">truyenyy</a></li>
-							<li><a href="#" target="_blank">Thương Khung</a></li>
-						</ul>
-					</div>
-					<div class="right-inner span3">
-						<h3>Liên Hệ</h3>
-						<ul>
-							<li><a href="#" target="_blank">Twitter</a></li>
-							<li><a href="#" target="_blank">Google+</a></li>
-							<li><a href="#" target="_blank">Email</a></li>
-							<li><a href="#" target="_blank">Chính sách</a></li>
-							<li><a href="#" target="_blank">Liên Hệ</a></li>
-							<li><a href="#">Về Đầu Trang</a></li>
-							<li><a href="#" title="DMCA.com Protection Status"
-								class="dmca-badge"> <img src="img/dmca.png"
-									alt="DMCA.com Protection Status" /></a>
-						</ul>
-					</div>
-				</div>
-
-				<footer class="site-footer row">
-					<div class="span6">© 2017 N.T.L</div>
-				</footer>
 			</div>
 		</div>
 	</div>
-	<script>(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/\>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);</script>
+	<script>
+		(function(d, s, a, i, j, r, l, m, t) {
+			try {
+				l = d.getElementsByTagName('a');
+				t = d.createElement('textarea');
+				for (i = 0; l.length - i; i++) {
+					try {
+						a = l[i].href;
+						s = a.indexOf('/cdn-cgi/l/email-protection');
+						m = a.length;
+						if (a && s > -1 && m > 28) {
+							j = 28 + s;
+							s = '';
+							if (j < m) {
+								r = '0x' + a.substr(j, 2) | 0;
+								for (j += 2; j < m && a.charAt(j) != 'X'; j += 2)
+									s += '%'
+											+ ('0' + ('0x' + a.substr(j, 2) ^ r)
+													.toString(16)).slice(-2);
+								j++;
+								s = decodeURIComponent(s) + a.substr(j, m - j)
+							}
+							t.innerHTML = s.replace(/</g, '&lt;').replace(
+									/\>/g, '&gt;');
+							l[i].href = 'mailto:' + t.value
+						}
+					} catch (e) {
+					}
+				}
+			} catch (e) {
+			}
+		})(document);
+	</script>
 </body>
 </html>

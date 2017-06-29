@@ -35,13 +35,6 @@ function search(key) {
             ul.appendChild(li);
         }
         
-        var chapterleng = Object.keys(data.chapters).length;
-        for (var i = 0; i < chapterleng; i++) {
-            var li = document.createElement("li");
-            li.innerHTML = '<div class="row-fluid search-result-element"><a href="#" target="_blank"><div class="span2"><img src="'+data.chapters[i].image+'" class="image-search"></div><div class="span8">'+data.chapters[i].name+'</div><div class="span2">[C]</div></a></div><div class="space5"></div>';
-            ul.appendChild(li);
-        }
-        
         var authorleng = Object.keys(data.authors).length;
         for (var i = 0; i < authorleng; i++) {
             var li = document.createElement("li");

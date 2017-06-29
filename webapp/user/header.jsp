@@ -1,3 +1,4 @@
+<%@page import="DAO.CategoryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- <%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%> --%>
@@ -64,98 +65,17 @@ body {
 								class="icon-book"></i> Danh Mục<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li class="yamm-content">
-									<ul class="span2 unstyled" style="width: 158px;">
+									<!-- <ul class="span2 unstyled" style="width: 158px;">
 										<li><input type="hidden" value="1"><a href="#">Kiếm
 												Hiệp</a></li>
-									</ul>
+									</ul> --> <%
+ 	for (int i = 0; i < CategoryDAO.getAllCategory().size(); i++) {
+ %>
 									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="2"><a href="#">Tiên
-												Hiệp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="3"><a href="#">Huyển
-												Ảo</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="4"><a href="#">Sắc
-												Hiệp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="7"><a href="#">Đô
-												Thị</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="26"><a href="#">Võng
-												Du</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="5"><a href="#">Xuyên
-												Không</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="6"><a href="#">Dị
-												Giới</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="8"><a href="#">Dị
-												Năng</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="10"><a href="#">Huyền
-												Huyễn</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="11"><a href="#">Khoa
-												Huyễn</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="12"><a href="#">Tu
-												Chân</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="13"><a href="#">Lịch
-												Sử Quân Sự</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="14"><a href="#">Viễn
-												Tưởng</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="15"><a href="#">Trinh
-												Thám</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="16"><a href="#">Ngôn
-												Tình</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="19"><a href="#">Quan
-												Trường</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="17"><a href="#">Truyện
-												Teen</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="20"><a href="#">Thám
-												Hiểm</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="21"><a href="#">Kỳ
-												Bí</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="22"><a href="#">Ma
-												Pháp</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="24"><a href="#">Quỷ
-												Tu</a></li>
-									</ul>
-									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="25"><a href="#">Cổ
-												Đại</a></li>
-									</ul>
+										<li><input type="hidden" value="1"><a href="#"><%=CategoryDAO.getAllCategory().get(i).getCategoryName()%></a></li>
+									</ul> <%
+ 	}
+ %>
 								</li>
 							</ul></li>
 						<li><a href="index.jsp"><i class="fa fa-list-alt"

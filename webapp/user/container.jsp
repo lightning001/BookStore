@@ -85,7 +85,7 @@ body {
 								<% for(int i=0; i<list.size(); i++){ %>
 								<li class="span2"><a href="detail.jsp" class="thumbnail"
 									target="_blank"> <img alt="Đại Chúa Tể" width="160"
-										height="210" src="<%=list.get(i).getLinkImg()%>">
+										height="210" src="<%=request.getContextPath() + list.get(i).getLinkImg()%>">
 								</a>
 									<div class="caption">
 										<a target="_blank">

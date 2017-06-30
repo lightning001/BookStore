@@ -260,7 +260,7 @@ public class BookDAO extends ObjectDAO implements Serializable {
 	}
 
 	// TẠO RA DANH SÁCH YÊU THÍCH
-	public static List<Book> likeListBookt() {
+	public static List<Book> likeListBook() {
 		if (likelistBook == null)
 			likelistBook = new ArrayList<Book>();
 
@@ -273,7 +273,6 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		for (int s = 0; s < likelistBook.size(); s++) {
 			if (likelistBook.get(s).getBookId() == id) {
 				likelistBook.remove(s);
-
 			}
 		}
 		return likelistBook;

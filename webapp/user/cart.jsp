@@ -92,10 +92,6 @@ body {
 								<h4>
 									<a href=""><%=list.get(i).getBookName() %></a>
 								</h4>
-								<p>
-									ID:<%=list.get(i).getBookId() %></p>
-								
-						
 							</td>
 							<td class="cart_price">
 								<h6><p id="cp<%=list.get(i).getBookId()%>"><%=list.get(i).getPrice()%></p></h6>

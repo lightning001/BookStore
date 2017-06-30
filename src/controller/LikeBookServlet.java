@@ -33,17 +33,18 @@ public class LikeBookServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idBook = Integer.parseInt(request.getParameter("idBook")) - 1;
+		int idBook = Integer.parseInt(request.getParameter("idBook"));
 		Book book;
 
 		try {
 
 			book = BookDAO.getBook(idBook);
-			BookDAO.likeListBookt().add(book);
+
+			BookDAO.likeListBook().add(book);
 
 			response.sendRedirect("user/user.jsp");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			System.err.println("HERE TODO " + e.getMessage());
 			e.printStackTrace();
 		}
 

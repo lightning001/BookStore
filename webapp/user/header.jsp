@@ -65,14 +65,15 @@ body {
 								class="icon-book"></i> Danh Mục<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li class="yamm-content">
-									<!-- <ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="1"><a href="#">Kiếm
-												Hiệp</a></li>
-									</ul> --> <%
- 	for (int i = 0; i < CategoryDAO.getAllCategory().size(); i++) {
- %>
+									<%
+										for (int i = 0; i < CategoryDAO.getAllCategory().size(); i++) {
+									%>
 									<ul class="span2 unstyled" style="width: 158px;">
-										<li><input type="hidden" value="1"><a href="#"><%=CategoryDAO.getAllCategory().get(i).getCategoryName()%></a></li>
+										<li><input type="hidden" value="1">
+										<%int id = CategoryDAO.getAllCategory().get(i).getCategoryId();
+											String temp = "GetBookSameCategory?id=" + id;
+										%>
+										<a href="<%=response.encodeURL(temp)%>"><%=CategoryDAO.getAllCategory().get(i).getCategoryName()%></a></li>
 									</ul> <%
  	}
  %>

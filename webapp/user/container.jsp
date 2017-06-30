@@ -85,7 +85,7 @@ body {
 								<% for(int i=0; i<list.size(); i++){ %>
 								<li class="span2"><a href="detail.jsp" class="thumbnail"
 									target="_blank"> <img alt="Đại Chúa Tể" width="160"
-										height="210" src="<%=request.getContextPath() + list.get(i).getLinkImg()%>">
+										height="219" src="<%=request.getContextPath() + list.get(i).getLinkImg()%>">
 								</a>
 									<div class="caption">
 										<a target="_blank">
@@ -98,11 +98,14 @@ body {
 											&nbsp<i class="fa fa-thumbs-o-up" style="color: blue"></i> <a
 											class="label label-default"
 											href="<%=request.getContextPath()%>/LikeBookServlet?idBook=<%=list.get(i).getBookId()%>"
-											style="color: #fe0f0f">Yêu thích</a> <br> <br> <a
+											style="color: #fe0f0f">Yêu thích</a> <br> <br> 
+											<%if(list.get(i).getPrice() != 0){ %>
+											<a
 											href="<%=request.getContextPath()%>/PurchaseServlet?idBook=<%=list.get(i).getBookId()%>"
 											class="btn btn-danger add-to-cart"><i
 												class="fa fa-shopping-cart"></i>Add to cart</a>
 										</a>
+										<%} %>
 									</div></li>
 								<%} %>
 

@@ -23,11 +23,11 @@
 <script type="text/javascript" src="js/csrf.js"></script>
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<%
 	Accounts acc = AccountDAO.getAccount(17);
-    List<Book> list = BookDAO.getNewBook(6); %>
-	<jsp:include page="header.jsp"></jsp:include>
+    List<Book> list = BookDAO.likeListBook(); %>
 	<div class="container">
 		<div class="row">
 			<div class="span12">
@@ -64,7 +64,7 @@
 								<% for(int i=0; i<list.size(); i++){ %>
 								<li class="span2"><a href="detail.jsp" class="thumbnail"
 									target="_blank"> <img alt="Đại Chúa Tể" width="160"
-										height="210" src="<%=list.get(i).getLinkImg()%>">
+										height="210" src="<%=request.getContextPath() + list.get(i).getLinkImg()%>">
 								</a>
 									<div class="caption">
 										<a href="detail.jsp" target="_blank">

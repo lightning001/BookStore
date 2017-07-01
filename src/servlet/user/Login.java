@@ -1,6 +1,7 @@
-package servlet;
+package servlet.user;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +13,9 @@ import DAO.ManagerDAO;
 import entity.Manager;
 
 /**
- * Servlet implementation class Login
+ * Created by congphuong on 7/1/17.
  */
-@WebServlet("/admin/Login")
+@WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,6 +30,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
@@ -37,30 +39,27 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		String email = request.getParameter("email");
-		String passwd = request.getParameter("passwd");
+		String email = request.getParameter("username");
+		String passwd = request.getParameter("password");
 
 		if (email != null && !"".equals(email) && passwd != null && !"".equals(passwd)) {
 			Manager u = ManagerDAO.login(email, passwd);
 			if (u != null) {
 				HttpSession session = request.getSession();
-				if ("admin".equalsIgnoreCase(u.getOffice())) {
-					session.setAttribute("masteraccount", u);
-				}
-				session.setAttribute("adminaccount", u);
-				request.getRequestDispatcher("/admin/index").forward(request, response);
+				session.setAttribute("user", u);
+				request.getRequestDispatcher("/index").forward(request, response);
 			} else {
 				request.setAttribute("loginerror", "Email or Password is incorrect or You not have access page");
 				request.getRequestDispatcher("/admin/Login.jsp").forward(request, response);
 			}
 		} else {
 			request.setAttribute("loginerror", "Error");
-			request.getRequestDispatcher("/admin/Login.jsp").forward(request, response);
+			request.getRequestDispatcher("/user/Login.jsp").forward(request, response);
 		}
 	}
-
 }

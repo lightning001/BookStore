@@ -1,3 +1,4 @@
+<%@page import="entity.Accounts"%>
 <%@page import="DAO.CategoryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -95,6 +96,11 @@ body {
 							</ul></li>
 
 					</ul>
+					
+					<%
+						Accounts account = (Accounts) session.getAttribute("account");
+						if(account == null){
+					%>
 
 					<ul class="nav pull-right">
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -115,6 +121,26 @@ body {
 							</ul></li>
 
 					</ul>
+					
+					<%} else { %>
+					<ul class="nav pull-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><i class="fa fa-address-book"
+								style="font-size: 24px; color: blue"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="<%=request.getContextPath() %>/LogoutUser"><i class="icon-arrow-right"></i>
+										Đăng Xuất</a></li>
+								<li><a href="user.jsp"><i class="	fa fa-address-card"
+										style="color: green;"></i>Trang User</a></li>
+								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"
+										style="color: red;"></i> Cart</a></li>
+								<li><a href="dangtruyen.jsp"><i
+										class="fa fa-address-card-o" style="color: green;"></i> Đăng
+										truyện</a></li>
+							</ul></li>
+
+					</ul>
+					<%} %>
 
 					<div class="navbar-search form-search pull-right">
 						<script src="<%=request.getContextPath()%>/js/searchbook.js"></script>

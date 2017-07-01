@@ -46,7 +46,7 @@ body {
 <body>
 
 	<% 
-     List<Book> list = BookDAO.getFreeBook();
+     List<Book> list = BookDAO.getAllBook();
   %>
 
 	<div class="container">

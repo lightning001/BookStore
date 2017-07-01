@@ -30,25 +30,27 @@ body {
 }
 </style>
 <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37191528-1']);
-        _gaq.push(['_trackPageview']);
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-37191528-1' ]);
+	_gaq.push([ '_trackPageview' ]);
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+				: 'http://www')
+				+ '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
 </head>
 <body>
 
-	<% 
-     Set<Book> list = (Set<Book>)request.getAttribute("getBook");
-  %>
+	<%
+		Set<Book> list = (Set<Book>) request.getAttribute("getBook");
+	%>
 
 	<div class="container">
 		<div class="row">
@@ -76,38 +78,48 @@ body {
 								<li class="nt"><a href="#">Truyện Ngôn Tình</a></li>
 							</ul>
 						</div>
-						<div class="hide-x">
-						</div>
+						<div class="hide-x"></div>
 					</div>
 					<div class="span10">
 						<div class="inner">
 							<ul class="thumbnails">
-								<% for(Book book : list){ %>
-								<li class="span2"><a href="detail.jsp" class="thumbnail"
-									target="_blank"> <img alt="Đại Chúa Tể" width="160"
-										height="210" src="<%=request.getContextPath() + book.getLinkImg()%>">
+								<%
+									for (Book book : list) {
+								%>
+								<%
+									int id = book.getBookId();
+										String temp = "Detail?idBook=" + id;
+								%>
+								<li class="span2"><a href="<%=response.encodeURL(temp)%>"
+									class="thumbnail" target="_blank"> <img alt="Đại Chúa Tể"
+										width="160" height="210"
+										src="<%=request.getContextPath() + book.getLinkImg()%>">
 								</a>
 									<div class="caption">
 										<a target="_blank">
 											<h2>
-												<a href="detail.jsp"> <%=book.getBookName() %>
+												<a href="<%=response.encodeURL(temp)%>"> <%=book.getBookName()%>
 												</a>
-											</h2> <i class="icon-star-empty star"></i> <span
-											class="label label-warning">Chương 1434</span> <br> <br>
+											</h2> <i class="icon-star-empty star"></i> <br> <br>
 
 											&nbsp<i class="fa fa-thumbs-o-up" style="color: blue"></i> <a
 											class="label label-default"
 											href="<%=request.getContextPath()%>/LikeBookServlet?idBook=<%=book.getBookId()%>"
-											style="color: #fe0f0f">Yêu thích</a> <br> <br> 
-											<%if(book.getPrice() != 0){ %>
+											style="color: #fe0f0f">Yêu thích</a> <br> <br> <%
+ 	if (book.getPrice() != 0) {
+ %>
 											<a
 											href="<%=request.getContextPath()%>/PurchaseServlet?idBook=<%=book.getBookId()%>"
 											class="btn btn-danger add-to-cart"><i
 												class="fa fa-shopping-cart"></i>Add to cart</a>
 										</a>
-										<%} %>
+										<%
+											}
+										%>
 									</div></li>
-								<%} %>
+								<%
+									}
+								%>
 
 							</ul>
 						</div>

@@ -104,7 +104,7 @@ public class BookDAO extends ObjectDAO implements Serializable {
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Book.class.getName() + " e join e.chapters c order by e.postDate desc, c.order desc";
+			String hql = "from " + Book.class.getName() + " e order by e.postDate desc";
 			Query<Book> query = session.createQuery(hql);
 			book = query.list();
 			session.getTransaction().commit();

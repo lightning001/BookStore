@@ -33,7 +33,7 @@ public class PurchaseServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idBook = Integer.parseInt(request.getParameter("idBook")) - 1;
+		int idBook = Integer.parseInt(request.getParameter("idBook"));
 		try {
 			Book book = BookDAO.getBook(idBook);
 			BookDAO.addListBookt().add(book);

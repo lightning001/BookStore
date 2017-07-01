@@ -87,7 +87,7 @@ body {
 						<%for(int i=0 ; i< list.size() ;i++){ %>
 						<tr>
 							<td class="cart_product"><a href=""><img
-									src="<%=list.get(i).getLinkImg() %>" alt=""style="width: 90px; height: 100px"></a></td>
+									src="<%=request.getContextPath() + list.get(i).getLinkImg() %>" alt=""style="width: 90px; height: 100px"></a></td>
 							<td class="cart_description">
 								<h4>
 									<a href=""><%=list.get(i).getBookName() %></a>

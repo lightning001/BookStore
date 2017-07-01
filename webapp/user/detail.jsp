@@ -139,8 +139,8 @@ body {
 							</div>
 							<div class="lww">
 								<p>
-									<a href="" class="btn btn-danger add-to-cart"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a><br> <span
+									<!-- <a href="" class="btn btn-danger add-to-cart"><i
+										class="fa fa-shopping-cart"></i>Add to cart</a> --><br> <span
 										class="xleft">Tác Giả:</span> <span>&nbsp;<a href="-#">
 											<%
 												for (Accounts account : book.getBook_author()) {

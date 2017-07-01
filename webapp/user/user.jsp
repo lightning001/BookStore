@@ -62,22 +62,21 @@
 						<div class="inner">
 							<ul class="thumbnails">
 								<% for(int i=0; i<list.size(); i++){ %>
-								<li class="span2"><a href="detail.jsp" class="thumbnail"
+									<% int id = list.get(i).getBookId();
+											String temp = "Detail?idBook=" + id;
+										%>
+								<li class="span2"><a href="<%=response.encodeURL(temp)%>" class="thumbnail"
 									target="_blank"> <img alt="Đại Chúa Tể" width="160"
 										height="210" src="<%=request.getContextPath() + list.get(i).getLinkImg()%>">
 								</a>
 									<div class="caption">
-										<a href="detail.jsp" target="_blank">
+										<a href="<%=response.encodeURL(temp)%>" target="_blank">
 											<h2><%=list.get(i).getBookName() %></h2> <i
-											class="icon-star-empty star"></i> <span
-											class="label label-warning">Chương 1434</span> <br> <br>
+											class="icon-star-empty star"></i> <br> <br>
 											&nbsp<i class="fa fa-thumbs-down" style="color: blue"></i> <a
 											class="label label-default"
 											href="<%=request.getContextPath()%>/UnlikeBook?idBook=<%=list.get(i).getBookId()%>"
-											style="color: #fe0f0f">Bỏ thích</a> <br> <br> <a
-											href="<%=request.getContextPath()%>/PurchaseServlet?idBook=<%=list.get(i).getBookId()%>"
-											class="btn btn-danger add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
+											style="color: #fe0f0f">Bỏ thích</a> <br> <br>
 										</a>
 									</div></li>
 								<%} %>

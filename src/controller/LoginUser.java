@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.AccountDAO;
+import entity.Accounts;
+
 /**
  * Servlet implementation class LoginUser
  */
@@ -36,7 +39,18 @@ public class LoginUser extends HttpServlet {
 		String pass = request.getParameter("password");
 
 		if (userName != null && !"".equals(userName) && pass != null && !"".equals(pass)) {
-
+			Accounts ac = AccountDAO.login(userName, pass);
+			System.out.println(ac);
+			if (ac != null) {
+				session.setAttribute("account", ac);
+				response.sendRedirect("user/index.jsp");
+			} else {
+				request.setAttribute("loginerror", "Email or Password is incorrect or You not have access page");
+				response.sendRedirect("user/login.jsp");
+			}
+		} else {
+			request.setAttribute("loginerror", "Error");
+			response.sendRedirect("user/login.jsp");
 		}
 
 	}

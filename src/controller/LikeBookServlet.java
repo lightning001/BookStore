@@ -38,14 +38,14 @@ public class LikeBookServlet extends HttpServlet {
 		int idBook = Integer.parseInt(request.getParameter("idBook"));
 		Book book;
 		HttpSession session = request.getSession();
-		Accounts c = (Accounts) session.getAttribute("");
+		Accounts c = (Accounts) session.getAttribute("account");
 
 		try {
 
 			book = BookDAO.getBook(idBook);
 
 			BookDAO.likeListBook().add(book);
-			if (c != null) {
+			if (c == null) {
 				response.sendRedirect(request.getContextPath() + "/user/login.jsp");
 			} else {
 				response.sendRedirect(request.getContextPath() + "/user/user.jsp");

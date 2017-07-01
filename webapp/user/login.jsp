@@ -41,7 +41,7 @@
 						</div>
 						<div class="row">
 							<div class="span9">
-								<form action="login" method="post" role="form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='GBFs8dpdU4oMnI92HERYMd33OUWHunmM'/></div>
+								<form action="<%=request.getContextPath() %>/LoginUser" method="post" role="form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='GBFs8dpdU4oMnI92HERYMd33OUWHunmM'/></div>
 									<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='GBFs8dpdU4oMnI92HERYMd33OUWHunmM'/> </div>
 									<div id="div_id_username" class="control-group">
 										<label for="id_username" class="control-label requiredField">Tên đăng nhập<span class="asteriskField">*</span></label>

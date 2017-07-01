@@ -34,9 +34,9 @@ public class CheckUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Accounts c = (Accounts) session.getAttribute("");
+		Accounts c = (Accounts) session.getAttribute("account");
 
-		if (c != null) {
+		if (c == null) {
 			response.sendRedirect(request.getContextPath() + "/user/login.jsp");
 		} else {
 			response.sendRedirect(request.getContextPath() + "/user/muahang.jsp");

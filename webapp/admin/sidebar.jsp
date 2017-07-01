@@ -11,11 +11,11 @@
 		<div class="container-fluid">
 			<!-- BEGIN LOGO -->
 			<a class="brand" href="<%=request.getContextPath()%>/admin/index">
-				<span>BookStory</span>
+				<span>BookStore</span>
 			</a>
 			<!-- END LOGO -->
 			<!-- BEGIN RESPONSIVE MENU TOGGLER -->
-			<a class="btn btn-navbar collapsed" id="main_menu_trigger"
+			<a class="btn btn-navbar collapsed" id="main_menu_trigger" 
 				data-toggle="collapse" data-target=".nav-collapse"> <span
 				class="icon-bar"></span> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="arrow"></span>

@@ -24,7 +24,7 @@ if(session.getAttribute("adminaccount")!=null)
 	<div class="login-box">
 		<div class="login-logo">
 			<h1>
-				<b>Admin</b> Book Story
+				<b>Admin</b> Book Store
 			</h1>
 		</div>
 		<!-- /.login-logo -->

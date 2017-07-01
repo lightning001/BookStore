@@ -119,7 +119,7 @@
 										<li><a href="javascript:;"><i class="icon-money"></i>
 												<%=book.getExchangeses().size()%></a></li>
 									</ul>
-									<a href="#" class="btn btn-info">Đọc thêm</a> <a
+									<a href="<%=request.getContextPath() %>/user/detail.jsp" class="btn btn-info" target="_blank">Đọc thêm</a> <a
 										href="<%=request.getContextPath()%>/admin/book/edit/<%=book.getSlug()%>"
 										class="btn btn-warning">Chỉnh sửa</a>
 								</div>

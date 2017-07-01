@@ -50,6 +50,25 @@ public class CategoryDAO extends ObjectDAO implements Serializable {
 		}
 	}
 
+	public static Category getCategory(String slug) {
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		Category category = null;
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Category.class.getName() + " e where e.slug =:slug";
+			Query<Category> query = session.createQuery(hql);
+			query.setParameter("slug", slug);
+			query.setMaxResults(1);
+			category = query.getSingleResult();
+			session.getTransaction().commit();
+			return category;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return null;
+		}
+	}
+
 	@SuppressWarnings("deprecation")
 	public static long getPageCount(int pageSize) {
 		if (pageSize == 0)

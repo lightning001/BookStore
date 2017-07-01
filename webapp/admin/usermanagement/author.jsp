@@ -97,10 +97,9 @@
 												src="<%=request.getContextPath() + list.get(i).getAccounts().getLinkImg()%>"></td>
 											<td><%=list.get(i).getAuthorName()%></td>
 											<td><%=list.get(i).getAccounts().getEmail()%></td>
-											<td><a class="btn btn-default"><i
-													class="icon-credit-card"
-													href="<%=request.getContextPath()%>/admin/user/profile/<%=list.get(i).getAccounts().getAccountId()%>"></i>
-											</a> <a class="btn btn-default"
+											<td><a class="btn btn-default"
+												href="<%=request.getContextPath()%>/admin/user/profile/<%=list.get(i).getAccounts().getAccountId()%>"><i
+													class="icon-credit-card"></i> </a> <a class="btn btn-default"
 												href="<%=request.getContextPath()%>/admin/user/edit/author/<%=list.get(i).getAccountId()%>"><i
 													class="icon-edit"></i></a> <a class="btn btn-default"
 												href="<%=request.getContextPath()%>/admin/user/delete/author/<%=list.get(i).getAccountId()%>"><i

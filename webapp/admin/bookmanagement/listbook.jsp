@@ -86,6 +86,7 @@
 										<%
 											}
 										%>
+										<a href="<%=request.getContextPath()+"/admin/book/delete/"+book.getSlug()%>" class="pull-right"><span class="badge badge-important"><i class="icon-remove"></i></span></a>
 									</h2>
 									<p>
 										Ngày đăng:
@@ -119,7 +120,7 @@
 										<li><a href="javascript:;"><i class="icon-money"></i>
 												<%=book.getExchangeses().size()%></a></li>
 									</ul>
-									<a href="<%=request.getContextPath() %>/user/detail.jsp" class="btn btn-info" target="_blank">Đọc thêm</a> <a
+									<a href="<%=request.getContextPath()+"/user/Detail?idBook="+book.getBookId() %>" class="btn btn-info" target="_blank">Đọc thêm</a> <a
 										href="<%=request.getContextPath()%>/admin/book/edit/<%=book.getSlug()%>"
 										class="btn btn-warning">Chỉnh sửa</a>
 								</div>
@@ -171,6 +172,7 @@
 								<a href="#" data-toggle="modal" data-target="#addcategory">Thêm
 									mới</a>
 							</p>
+							<div class="clearfix"></div>
 							<div id="addcategory" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 
@@ -211,9 +213,10 @@
 
 
 							<ul class="unstyled" id="category_sidebar">
-								<%=lessCategory(listCategory)%>
+								<%=lessCategory(listCategory, request.getContextPath())%>
 							</ul>
 							<hr />
+							<div class="clearfix"></div>
 							<h2>Mới nhất</h2>
 							<%
 								for (Book book : newBooks) {
@@ -235,6 +238,7 @@
 								}
 							%>
 							<hr />
+							<div class="clearfix"></div>
 							<h2>Yêu thích nhất</h2>
 							<ul class="unstyled tag">
 								<%
@@ -252,25 +256,25 @@
 			</div>
 		</div>
 	</div>
-	<%!String fullCategory(List<Category> list) {
+	<%!String fullCategory(List<Category> list, String contextPath) {
 		StringBuilder s = new StringBuilder();
 		for (Category cate : list) {
-			s.append("<li><a href=\"#\"><i class=\"icon-chevron-right\"></i>" + cate.getCategoryName() + "</a></li>");
+			s.append("<li><div><a href=\"#\"><i class=\"icon-chevron-right\"></i>" + cate.getCategoryName() + "</a><a href=\""+contextPath+"/admin/category/delete/"+cate.getSlug()+"\" class=\"pull-right\"><i class=\"icon-remove\"></i></a></div></li>");
 		}
 		if (list.size() > 6) {
-			s.append("<li><a href=\"#\" id=\"cate_less\"> Thu lại</a></li>");
+			s.append("<li><div><a href=\"#\" id=\"cate_less\"> Thu lại</a></div></li>");
 		}
 		return s.toString();
 	}
 
-	String lessCategory(List<Category> list) {
+	String lessCategory(List<Category> list, String contextPath) {
 		StringBuilder s = new StringBuilder();
 		int count = 0;
 		for (Category cate : list) {
-			s.append("<li><a href=\"#\"><i class=\"icon-chevron-right\"></i>" + cate.getCategoryName() + "</a></li>");
+			s.append("<li><div><a href=\"#\"><i class=\"icon-chevron-right\"></i>" + cate.getCategoryName() + "</a><a href=\""+contextPath+"/admin/category/delete/"+cate.getSlug()+"\" class=\"pull-right\"><i class=\"icon-remove\"></i></a></div></li>");
 			count++;
 			if (count > 6) {
-				s.append("<li><a href=\"#\" id=\"cate_more\"> Xem thêm</a></li>");
+				s.append("<li><div><a href=\"#\" id=\"cate_more\"> Xem thêm</a></div></li>");
 				break;
 			}
 		}
@@ -279,12 +283,12 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 	<script type="text/javascript">
 		$("#cate_more").click(function() {
-			document.getElementById('category_sidebar').innerHTML = '<%=fullCategory(listCategory)%>';
+			document.getElementById('category_sidebar').innerHTML = '<%=fullCategory(listCategory, request.getContextPath())%>';
 		});
 	</script>
 	<script type="text/javascript">
 		$("#cate_less").click(function() {
-			document.getElementById('category_sidebar').innerHTML = '<%=lessCategory(listCategory)%>';
+			document.getElementById('category_sidebar').innerHTML = '<%=lessCategory(listCategory, request.getContextPath())%>';
 		});
 	</script>
 	<script type="text/javascript">

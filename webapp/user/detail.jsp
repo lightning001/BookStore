@@ -171,7 +171,7 @@ body {
 									<span class="xleft">Chia sẻ:</span> <a
 										href="https://plus.google.com/share?url=<%=request.getHeader("referer")%>"
 										onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+  '');return false;"><img
 										src="https://www.gstatic.com/images/icons/gplus-32.png"
 										alt="Share on Google+" /></a>
 								</p>

@@ -4678,6 +4678,22 @@ body {
 										<div class="checkout-field _row" data-form="field">
 											<div class="checkout-field _main">
 												<div class="checkout-field _title">
+													<label class="checkout-field _label">Mã thẻ nạp</label>
+												</div>
+												<div class="checkout-field _input-wrapper">
+													<input class="checkout-field _input-text"
+														placeholder="Xin vui lòng nhập mã thẻ nạp:" data-field="input"
+														name="ThreeStepShippingAddressForm[email]"
+														id="ThreeStepShippingAddressForm_email" type="text">
+												</div>
+												<div class="checkout-field _message" data-field="message">
+												</div>
+											</div>
+										</div>
+										
+										<div class="checkout-field _row" data-form="field">
+											<div class="checkout-field _main">
+												<div class="checkout-field _title">
 													<label class="checkout-field _label"> Mệnh giá </label>
 												</div>
 												<div class="checkout-field _input-wrapper">

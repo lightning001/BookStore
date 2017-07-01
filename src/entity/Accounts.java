@@ -234,16 +234,16 @@ public class Accounts implements java.io.Serializable {
 		this.linkImg = linkImg;
 	}
 
-	public boolean getIsActive() {
+	public Boolean getIsActive() {
 		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public String getActiveCode() {
 		return activeCode;
-	}
-
-	public void setIsActive(boolean isActive) {
-		this.isActive = isActive;
 	}
 
 	public void setActiveCode(String activeCode) {

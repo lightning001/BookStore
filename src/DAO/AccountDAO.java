@@ -13,6 +13,28 @@ import util.HibernateUtils;
 public class AccountDAO extends ObjectDAO implements Serializable {
 	private static final long serialVersionUID = 4908536999390863695L;
 
+	public static Accounts login(String email, String password) {
+		Accounts accounts = null;
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Accounts.class.getName()
+					+ " e where e.email=:email and e.passwords=:password and e.isLock=:isLock and e.isActive=:isActive";
+			Query<Accounts> query = session.createQuery(hql);
+			query.setParameter("email", email);
+			query.setParameter("password", password);
+			query.setParameter("isActive", true);
+			query.setParameter("isLock", false);
+			accounts = query.uniqueResult();
+			session.getTransaction().commit();
+			return accounts;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return null;
+		}
+	}
+
 	/**
 	 * 
 	 * @return Tat ca user trong database

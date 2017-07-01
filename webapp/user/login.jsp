@@ -46,7 +46,7 @@
 									<div id="div_id_username" class="control-group">
 										<label for="id_username" class="control-label requiredField">Tên đăng nhập<span class="asteriskField">*</span></label>
 										<div class="controls">
-											<input name="username" maxlength="254" type="text" autofocus="autofocus" required="required" placeholder="Tên tài khoản" class="textinput textInput" id="id_username"/>
+											<input name="username" maxlength="254" type="email" autofocus="autofocus" required="required" placeholder="Tên tài khoản" class="textinput textInput" id="id_username"/>
 										</div>
 									</div>
 									<div id="div_id_password" class="control-group">

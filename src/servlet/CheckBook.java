@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.BookDAO;
+import entity.Accounts;
 import entity.Book;
+import util.MailTemplete;
 import util.ParseURI;
+import util.SendMail;
 
 /**
  * Servlet implementation class CheckBook
@@ -41,6 +44,12 @@ public class CheckBook extends HttpServlet {
 			Book book = BookDAO.getBook(slug);
 			book.setChecked(true);
 			if (BookDAO.update(book)) {
+				for (Accounts au : book.getBook_author()) {
+					SendMail.sendMail(au.getEmail(),
+							MailTemplete
+									.checkBook(request.getContextPath() + "/user/Detail?idBook=" + book.getBookId()),
+							"[ĐĂNG TRUYỆN TẠI BOOKSTORE]");
+				}
 				if ("checkbook".equals(param[param.length - 2])) {
 					request.getRequestDispatcher("/admin/book/checklist").forward(request, response);
 					return;

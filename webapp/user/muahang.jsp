@@ -4642,179 +4642,65 @@ body {
 												</div>
 											</div>
 										</div>
-
+										
 										<div class="checkout-field _row" data-form="field">
 											<div class="checkout-field _main">
 												<div class="checkout-field _title">
-													<label class="checkout-field _label"> Tỉnh/Thành
-														phố </label>
+													<label class="checkout-field _label"> Nhà Đài </label>
 												</div>
 												<div class="checkout-field _input-wrapper">
-													<select class="checkout-field _select location shipping"
-														rel="location_0" data-field="input"
-														name="ThreeStepShippingAddressForm[location][0]"
-														id="ThreeStepShippingAddressForm_location_0">
-														<option value="271">Hồ Chí Minh</option>
-														<option value="232">Hà Nội</option>
-														<option value="260">Đà Nẵng</option>
-														<option value="280">Cần Thơ</option>
-														<option value="242">Hải Phòng</option>
-														<option value="272">An Giang</option>
-														<option value="431">Bà Rịa Vũng Tàu</option>
-														<option value="234">Bắc Giang</option>
-														<option value="233">Bắc Kạn</option>
-														<option value="276">Bạc Liêu</option>
-														<option value="235">Bắc Ninh</option>
-														<option value="277">Bến Tre</option>
-														<option value="261">Bình Định</option>
-														<option value="273">Bình Dương</option>
-														<option value="274">Bình Phước</option>
-														<option value="278">Bình Thuận</option>
-														<option value="279">Cà Mau</option>
-														<option value="236">Cao Bằng</option>
-														<option value="558">Đăk Lăk</option>
-														<option value="577">Đăk Nông</option>
-														<option value="237">Điện Biên</option>
-														<option value="281">Đồng Nai</option>
-														<option value="282">Đồng Tháp</option>
-														<option value="262">Gia Lai</option>
-														<option value="238">Hà Giang</option>
-														<option value="239">Hà Nam</option>
-														<option value="240">Hà Tĩnh</option>
-														<option value="241">Hải Dương</option>
-														<option value="283">Hậu Giang</option>
-														<option value="244">Hòa Bình</option>
-														<option value="243">Hưng Yên</option>
-														<option value="265">Khánh Hòa</option>
-														<option value="284">Kiên Giang</option>
-														<option value="264">Kon Tum</option>
-														<option value="246">Lai Châu</option>
-														<option value="286">Lâm Đồng</option>
-														<option value="247">Lạng Sơn</option>
-														<option value="245">Lào Cai</option>
-														<option value="285">Long An</option>
-														<option value="248">Nam Định</option>
-														<option value="249">Nghệ An</option>
-														<option value="250">Ninh Bình</option>
-														<option value="287">Ninh Thuận</option>
-														<option value="251">Phú Thọ</option>
-														<option value="266">Phú Yên</option>
-														<option value="267">Quảng Bình</option>
-														<option value="269">Quảng Nam</option>
-														<option value="270">Quảng Ngãi</option>
-														<option value="252">Quảng Ninh</option>
-														<option value="268">Quảng Trị</option>
-														<option value="288">Sóc Trăng</option>
-														<option value="253">Sơn La</option>
-														<option value="289">Tây Ninh</option>
-														<option value="254">Thái Bình</option>
-														<option value="255">Thái Nguyên</option>
-														<option value="256">Thanh Hóa</option>
-														<option value="263">Thừa Thiên Huế</option>
-														<option value="290">Tiền Giang</option>
-														<option value="291">Trà Vinh</option>
-														<option value="257">Tuyên Quang</option>
-														<option value="292">Vĩnh Long</option>
-														<option value="258">Vĩnh Phúc</option>
-														<option value="259">Yên Bái</option>
-													</select>
+													<input class="checkout-field _input-text"
+														placeholder="Xin vui lòng nhập nhà đài:" data-field="input"
+														name="ThreeStepShippingAddressForm[email]"
+														id="ThreeStepShippingAddressForm_email" type="text">
 												</div>
 												<div class="checkout-field _message" data-field="message">
 												</div>
 											</div>
 										</div>
-
+										
 										<div class="checkout-field _row" data-form="field">
 											<div class="checkout-field _main">
 												<div class="checkout-field _title">
-													<label class="checkout-field _label"> Quận/huyện </label>
+													<label class="checkout-field _label"> Số serial </label>
 												</div>
 												<div class="checkout-field _input-wrapper">
-													<select
-														class="checkout-field _select location it-is-last-level shipping"
-														rel="location_1" data-field="input"
-														name="ThreeStepShippingAddressForm[location][1]"
-														id="ThreeStepShippingAddressForm_location_1">
-														<option value="">Lựa chọn</option>
-														<option value="718">Quận 1</option>
-														<option value="719">Quận 2</option>
-														<option value="720">Quận 3</option>
-														<option value="721">Quận 4</option>
-														<option value="722">Quận 5</option>
-														<option value="723">Quận 6</option>
-														<option value="724">Quận 7</option>
-														<option value="729">Quận 12</option>
-														<option value="725">Quận 8</option>
-														<option value="726">Quận 9</option>
-														<option value="727">Quận 10</option>
-														<option value="728">Quận 11</option>
-														<option value="730">Quận Bình Tân</option>
-														<option value="731">Quận Bình Thạnh</option>
-														<option value="732">Quận Gò Vấp</option>
-														<option value="733">Quận Phú Nhuận</option>
-														<option value="734">Quận Tân Bình</option>
-														<option value="735">Quận Tân Phú</option>
-														<option value="736">Quận Thủ Đức</option>
-														<option value="737">Huyện Bình Chánh</option>
-														<option value="738">Huyện Cần Giờ</option>
-														<option value="739">Huyện Củ Chi</option>
-														<option value="740">Huyện Hóc Môn</option>
-														<option value="741">Huyện Nhà Bè</option>
-													</select>
+													<input class="checkout-field _input-text"
+														placeholder="Xin vui lòng nhập ma số serial:" data-field="input"
+														name="ThreeStepShippingAddressForm[email]"
+														id="ThreeStepShippingAddressForm_email" type="text">
 												</div>
 												<div class="checkout-field _message" data-field="message">
 												</div>
 											</div>
 										</div>
-
+										
 										<div class="checkout-field _row" data-form="field">
 											<div class="checkout-field _main">
 												<div class="checkout-field _title">
-													<label class="checkout-field _label"> Phường, xã </label>
+													<label class="checkout-field _label">Mã thẻ nạp</label>
 												</div>
 												<div class="checkout-field _input-wrapper">
-													<select class="checkout-field _select location shipping"
-														rel="location_2" data-field="input"
-														name="ThreeStepShippingAddressForm[location][2]"
-														id="ThreeStepShippingAddressForm_location_2">
-														<option value="">Lựa chọn</option>
-														<option value="8090">Phường Bến Nghé</option>
-														<option value="8091">Phường Bến Thành</option>
-														<option value="8092">Phường Cầu Kho</option>
-														<option value="8093">Phường Cầu Ông Lãnh</option>
-														<option value="8094">Phường Cô Giang</option>
-														<option value="8095">Phường Đa Kao</option>
-														<option value="6561">Nguyễn Cư Trinh</option>
-														<option value="8096">Phường Nguyễn Cư Trinh</option>
-														<option value="8097">Phường Nguyễn Thái Bình</option>
-														<option value="8098">Phường Phạm Ngũ Lão</option>
-														<option value="8099">Phường Tân Định</option>
-													</select>
+													<input class="checkout-field _input-text"
+														placeholder="Xin vui lòng nhập mã thẻ nạp:" data-field="input"
+														name="ThreeStepShippingAddressForm[email]"
+														id="ThreeStepShippingAddressForm_email" type="text">
 												</div>
 												<div class="checkout-field _message" data-field="message">
 												</div>
 											</div>
-											<input value=""
-												name="ThreeStepShippingAddressForm[longitude]"
-												id="ThreeStepShippingAddressForm_longitude" type="hidden"><input
-												value="" name="ThreeStepShippingAddressForm[latitude]"
-												id="ThreeStepShippingAddressForm_latitude" type="hidden">
 										</div>
-
+										
 										<div class="checkout-field _row" data-form="field">
 											<div class="checkout-field _main">
 												<div class="checkout-field _title">
-													<label for="" class="checkout-field _label"> Vui
-														lòng điền CHÍNH XÁC "tầng, số nhà, đường" để tránh trường
-														hợp đơn hàng bị hủy ngoài ý muốn </label>
+													<label class="checkout-field _label"> Mệnh giá </label>
 												</div>
 												<div class="checkout-field _input-wrapper">
-													<textarea class="checkout-field _input-textarea" rows="3"
-														maxlength="255"
-														placeholder="Vui lòng điền CHÍNH XÁC &quot;tầng, số nhà, đường&quot; để tránh trường hợp đơn hàng bị hủy ngoài ý muốn"
-														data-field="input" data-address="vn"
-														name="ThreeStepShippingAddressForm[address1]"
-														id="ThreeStepShippingAddressForm_address1"></textarea>
+													<input class="checkout-field _input-text"
+														placeholder="Xin vui lòng nhập mệnh giá:" data-field="input"
+														name="ThreeStepShippingAddressForm[email]"
+														id="ThreeStepShippingAddressForm_email" type="text">
 												</div>
 												<div class="checkout-field _message" data-field="message">
 												</div>
@@ -5347,7 +5233,19 @@ body {
 
 								<div class="checkout-field _submit-row -final-row"
 									data-form="submit-wrapper" data-submit="new-address" >
-									<input type="hidden" name="send" value="1"> <a class="btn btn-danger check_out"  href="maxacnhan.jsp">Tiếp tục</a>
+									<input type="hidden" name="send" value="1"> <a class="btn btn-danger check_out" onclick="myFunction()" href="index.jsp">Tiếp tục</a>
+
+
+<script>
+function myFunction() {
+    var txt;
+    if (confirm("Đã mua hàng thành công, xin vui lòng check mail để biết thêm thông tin chi tiết") == true) {
+        txt = "Đã mua hàng thành công, xin vui lòng check mail để biết thêm thông tin chi tiết";
+    } else {
+        txt = "Mua hàng không thành công";
+    }
+}
+</script>
 								</div>
 
 							</form>

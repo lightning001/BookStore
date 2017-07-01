@@ -9,21 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.BookDAO;
 import entity.Accounts;
-import entity.Book;
 
 /**
- * Servlet implementation class LikeBookServlet
+ * Servlet implementation class CheckUser
  */
-@WebServlet("/LikeBookServlet")
-public class LikeBookServlet extends HttpServlet {
+@WebServlet("/CheckUser")
+public class CheckUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LikeBookServlet() {
+	public CheckUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,27 +33,14 @@ public class LikeBookServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idBook = Integer.parseInt(request.getParameter("idBook"));
-		Book book;
 		HttpSession session = request.getSession();
 		Accounts c = (Accounts) session.getAttribute("account");
 
-		try {
-
-			book = BookDAO.getBook(idBook);
-
-			BookDAO.likeListBook().add(book);
-			if (c == null) {
-				response.sendRedirect(request.getContextPath() + "/user/login.jsp");
-			} else {
-				response.sendRedirect(request.getContextPath() + "/user/user.jsp");
-			}
-
-		} catch (Exception e) {
-			System.err.println("HERE TODO " + e.getMessage());
-			e.printStackTrace();
+		if (c == null) {
+			response.sendRedirect(request.getContextPath() + "/user/login.jsp");
+		} else {
+			response.sendRedirect(request.getContextPath() + "/user/muahang.jsp");
 		}
-
 	}
 
 	/**

@@ -46,7 +46,7 @@
 						</div>
 						<div class="row">
 							<div class="span9">
-								<form action="http://truyenyy.com/dang_ky/." method="post" role="form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='ANzD3jUNexdNQDAsiDHPskQPrXsv1mty'/></div>
+								<form action="<%=request.getContextPath()%>/register" method="post" role="form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='ANzD3jUNexdNQDAsiDHPskQPrXsv1mty'/></div>
 									<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='ANzD3jUNexdNQDAsiDHPskQPrXsv1mty'/>
 									</div>
 									<div id="div_id_email" class="control-group required">

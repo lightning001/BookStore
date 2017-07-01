@@ -34,7 +34,7 @@ public class Logout extends HttpServlet {
 			request.getSession().removeAttribute("masteraccount");
 		}
 		request.getSession().invalidate();
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+		request.getRequestDispatcher("Login.jsp").forward(request, response);
 	}
 
 	/**

@@ -113,7 +113,7 @@ body {
 				</table>
 				<center>
 					<div>
-						<a class="btn btn-danger check_out" href="muahang.jsp" style="width: 95px; height: 29px" ><b>BUY
+						<a class="btn btn-danger check_out" href="<%=request.getContextPath() %>/CheckUser" style="width: 95px; height: 29px" ><b>BUY
 								NOW</b></a>
 					</div>
 				</center>

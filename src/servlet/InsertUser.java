@@ -66,6 +66,7 @@ public class InsertUser extends HttpServlet {
 				Date createDate = new Date(System.currentTimeMillis());
 				Accounts account = new Accounts(name, username, gender, email, linkImg, password, false, createDate,
 						(float) 0, 0);
+				account.setIsActive(true);
 				if ("user".equalsIgnoreCase(object.trim())) {
 					if (AccountDAO.insert(account)) {
 						request.getRequestDispatcher("/admin/user/user/1").forward(request, response);

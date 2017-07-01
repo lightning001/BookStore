@@ -7,7 +7,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	if (session.getAttribute("adminaccount") == null) {
-		response.sendRedirect(request.getContextPath() + "/admin/login.jsp");
+		response.sendRedirect(request.getContextPath() + "/admin/Login.jsp");
 		return;
 	}
 	int currentPage = request.getAttribute("currentPage") != null

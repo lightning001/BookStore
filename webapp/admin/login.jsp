@@ -27,7 +27,7 @@ if(session.getAttribute("adminaccount")!=null)
 				<b>Admin</b> Book Store
 			</h1>
 		</div>
-		<!-- /.login-logo -->
+		<!-Loginogin-logo -->
 		<div class="message">
 			<%
 				if (request.getAttribute("loginerror") != null) {
@@ -55,9 +55,9 @@ if(session.getAttribute("adminaccount")!=null)
 				</div>
 			</form>
 		</div>
-		<!-- /.login-box-body -->
+		<!-Loginogin-box-body -->
 	</div>
-	<!-- /.login-box -->
+	<!-Loginogin-box -->
 
 	<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"
 		type="text/javascript"></script>

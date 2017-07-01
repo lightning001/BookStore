@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	if (session.getAttribute("adminaccount") == null) {
-		response.sendRedirect(request.getContextPath() + "/admin/login.jsp");
+		response.sendRedirect(request.getContextPath() + "/admin/Login.jsp");
 		return;
 	}
 	String object = (String) request.getAttribute("object");

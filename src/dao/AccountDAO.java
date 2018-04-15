@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,32 +7,27 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import entity.Manager;
+import entity.Accounts;
 import util.HibernateUtils;
 
-public class ManagerDAO extends ObjectDAO implements Serializable {
+public class AccountDAO extends ObjectDAO implements Serializable {
+	private static final long serialVersionUID = 4908536999390863695L;
 
-	private static final long serialVersionUID = -6085850183754444184L;
-
-	public static Manager login(String email, String password) {
-		Manager manager = null;
+	public static Accounts login(String email, String password) {
+		Accounts accounts = null;
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Manager.class.getName()
-					+ " e where e.accounts.email=:email and e.accounts.passwords=:password";
-			Query<Manager> query = session.createQuery(hql);
+			String hql = "from " + Accounts.class.getName()
+					+ " e where e.email=:email and e.passwords=:password and e.isLock=:isLock and e.isActive=:isActive";
+			Query<Accounts> query = session.createQuery(hql);
 			query.setParameter("email", email);
 			query.setParameter("password", password);
-			query.setMaxResults(1);
-			manager = query.uniqueResult();
+			query.setParameter("isActive", true);
+			query.setParameter("isLock", false);
+			accounts = query.uniqueResult();
 			session.getTransaction().commit();
-			if (manager != null)
-				if (manager.getAccounts().getIsLock() == true) {
-					return null;
-				} else
-					return manager;
-			return null;
+			return accounts;
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
@@ -40,20 +35,25 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 		}
 	}
 
-	public static List<Manager> getAllAccount() {
-		List<Manager> managers = new ArrayList<Manager>();
+	/**
+	 * 
+	 * @return Tat ca user trong database
+	 */
+	public static List<Accounts> getAllAccount() {
+		List<Accounts> accounts = new ArrayList<Accounts>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Manager.class.getName();
-			Query<Manager> query = session.createQuery(hql);
-			managers = query.list();
+			String hql = "from " + Accounts.class.getName();
+			Query<Accounts> query = session.createQuery(hql);
+			// query.setMaxResults(12);
+			accounts = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
 		}
-		return managers;
+		return accounts;
 	}
 
 	/**
@@ -70,13 +70,13 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 	 * @return lay danh sach cac user theo level
 	 * 
 	 */
-	public static List<Manager> getAllManagerLevel(int level) {
-		List<Manager> accounts = new ArrayList<Manager>();
+	public static List<Accounts> getAllUsersLevel(int level) {
+		List<Accounts> accounts = new ArrayList<Accounts>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Manager.class.getName() + " e where e.accounts.levels=:level";
-			Query<Manager> query = session.createQuery(hql);
+			String hql = "from " + Accounts.class.getName() + " e where e.levels=:level";
+			Query<Accounts> query = session.createQuery(hql);
 			query.setParameter("level", level);
 			accounts = query.list();
 			session.getTransaction().commit();
@@ -87,18 +87,23 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 		return accounts;
 	}
 
-	public static Manager getManager(int id) {
+	/**
+	 * 
+	 * @param id
+	 * @return Account theo id duoc truyen vao
+	 */
+	public static Accounts getAccount(int id) {
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
-		Manager manager = null;
+		Accounts account = null;
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Manager.class.getName() + " e where e.accounts.accountId =:id";
-			Query<Manager> query = session.createQuery(hql);
+			String hql = "from " + Accounts.class.getName() + " e where e.accountId =:id";
+			Query<Accounts> query = session.createQuery(hql);
 			query.setParameter("id", id);
 			query.setMaxResults(1);
-			manager = query.getSingleResult();
+			account = query.getSingleResult();
 			session.getTransaction().commit();
-			return manager;
+			return account;
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
@@ -108,6 +113,7 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 
 	/**
 	 * Tham so dau vao cho levelAccount:<br>
+	 * <b>USER/AUTHOR</b> = 0;<br>
 	 * 
 	 * <b>ADMINISTATOR</b> = 1;<br>
 	 * 
@@ -130,12 +136,11 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 		long count = 0;
 		try {
 			session.getTransaction().begin();
-			String hql = "select count(accounts.accountId) from " + Manager.class.getName()
-					+ " e where e.accounts.levels=:level";
+			String hql = "select count(accountId) from " + Accounts.class.getName() + " e where e.levels=:level";
 			Query<Long> query = session.createQuery(hql);
 			query.setParameter("level", levelAccount);
 			query.setMaxResults(1);
-			count = (long) query.uniqueResult();
+			count = query.uniqueResult();
 			session.getTransaction().commit();
 			if (count % itemQuantity == 0) {
 				count = count / itemQuantity;
@@ -149,16 +154,15 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 		return count;
 	}
 
-	public static List<Manager> paging(int page, int pageSize, int level) {
+	public static List<Accounts> paging(int page, int pageSize, int level) {
 
-		List<Manager> listAccount = new ArrayList<Manager>();
+		List<Accounts> listAccount = new ArrayList<Accounts>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Manager.class.getName()
-					+ " e where e.accounts.levels=:level order by e.accounts.accountId asc";
-			Query<Manager> query = session.createQuery(hql);
+			String hql = "from " + Accounts.class.getName() + " e where e.levels=:level order by e.accountId asc";
+			Query<Accounts> query = session.createQuery(hql);
 			query.setParameter("level", level);
 			query.setFirstResult((page - 1) * pageSize);
 			query.setMaxResults(pageSize);
@@ -171,4 +175,28 @@ public class ManagerDAO extends ObjectDAO implements Serializable {
 		return listAccount;
 	}
 
+	public static boolean lockUnlock(int id) {
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		Accounts account = null;
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Accounts.class.getName() + " e where e.accountId =:id";
+			Query<Accounts> query = session.createQuery(hql);
+			query.setParameter("id", id);
+			query.setMaxResults(1);
+			account = query.getSingleResult();
+			if (account.getIsLock() == true) {
+				account.setIsLock(false);
+			} else {
+				account.setIsLock(true);
+			}
+			session.update(account);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+	}
 }

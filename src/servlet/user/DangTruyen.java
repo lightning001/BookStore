@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.BookDAO;
-import DAO.CategoryDAO;
+import dao.BookDAO;
+import dao.CategoryDAO;
 import entity.Accounts;
 import entity.Book;
 import entity.Category;

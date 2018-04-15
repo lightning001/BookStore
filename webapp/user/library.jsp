@@ -1,6 +1,6 @@
 <%@page import="entity.Chapter"%>
 <%@page import="entity.Book"%>
-<%@page import="DAO.BookDAO"%>
+<%@page import="dao.BookDAO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

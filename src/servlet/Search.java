@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.SearchDAO;
+import dao.SearchDAO;
 import entity.Accounts;
 import entity.Author;
 import entity.Book;

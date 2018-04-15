@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.CategoryDAO;
+import dao.CategoryDAO;
 import entity.Category;
 import util.ParseURI;
 

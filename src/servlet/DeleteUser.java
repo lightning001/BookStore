@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.AccountDAO;
-import DAO.AuthorDAO;
-import DAO.ManagerDAO;
+import dao.AccountDAO;
+import dao.AuthorDAO;
+import dao.ManagerDAO;
 import entity.Accounts;
 import entity.Author;
 import entity.Manager;

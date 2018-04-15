@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.AuthorDAO;
-import DAO.BookDAO;
-import DAO.CategoryDAO;
+import dao.AuthorDAO;
+import dao.BookDAO;
+import dao.CategoryDAO;
 import entity.Author;
 import entity.Book;
 import entity.Category;

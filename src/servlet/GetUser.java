@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.AccountDAO;
-import DAO.ObjectDAO;
+import dao.AccountDAO;
+import dao.ObjectDAO;
 import entity.Accounts;
 import util.ParseURI;
 

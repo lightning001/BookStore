@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="entity.Category"%>
-<%@page import="DAO.CategoryDAO"%>
+<%@page import="dao.CategoryDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

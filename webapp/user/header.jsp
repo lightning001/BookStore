@@ -1,5 +1,5 @@
 <%@page import="entity.Accounts"%>
-<%@page import="DAO.CategoryDAO"%>
+<%@page import="dao.CategoryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%-- <%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%> --%>

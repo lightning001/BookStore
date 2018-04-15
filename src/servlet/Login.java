@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.ManagerDAO;
+import dao.ManagerDAO;
 import entity.Manager;
 
 /**

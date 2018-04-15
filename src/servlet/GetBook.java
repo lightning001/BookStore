@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.BookDAO;
-import DAO.CategoryDAO;
+import dao.BookDAO;
+import dao.CategoryDAO;
 import entity.Book;
 import entity.Category;
 import util.ParseURI;

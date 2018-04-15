@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.ManagerDAO;
-import DAO.ObjectDAO;
+import dao.ManagerDAO;
+import dao.ObjectDAO;
 import entity.Manager;
 import util.ParseURI;
 

@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,40 +9,59 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
 
-import entity.Author;
+import entity.Category;
 import util.HibernateUtils;
 
-public class AuthorDAO extends ObjectDAO implements Serializable {
-	private static final long serialVersionUID = 109093590483148431L;
+public class CategoryDAO extends ObjectDAO implements Serializable {
+	private static final long serialVersionUID = -1512150533360333170L;
 
-	public static List<Author> getAllAuthor() {
-		List<Author> authors = new ArrayList<Author>();
+	public static List<Category> getAllCategory() {
+		List<Category> category = new ArrayList<Category>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Author.class.getName();
-			Query<Author> query = session.createQuery(hql);
-			authors = query.list();
+			String hql = "from " + Category.class.getName() + " c order by c.categoryName asc";
+			Query<Category> query = session.createQuery(hql);
+			category = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
 		}
-		return authors;
+		return category;
 	}
 
-	public static Author getAuthor(int id) {
+	public static Category getCategory(int id) {
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
-		Author author = null;
+		Category category = null;
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Author.class.getName() + " e where e.accountId =:id";
-			Query<Author> query = session.createQuery(hql);
+			String hql = "from " + Category.class.getName() + " e where e.categoryId =:id";
+			Query<Category> query = session.createQuery(hql);
 			query.setParameter("id", id);
 			query.setMaxResults(1);
-			author = query.getSingleResult();
+			category = query.getSingleResult();
 			session.getTransaction().commit();
-			return author;
+			return category;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return null;
+		}
+	}
+
+	public static Category getCategory(String slug) {
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		Category category = null;
+		try {
+			session.getTransaction().begin();
+			String hql = "from " + Category.class.getName() + " e where e.slug =:slug";
+			Query<Category> query = session.createQuery(hql);
+			query.setParameter("slug", slug);
+			query.setMaxResults(1);
+			category = query.getSingleResult();
+			session.getTransaction().commit();
+			return category;
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
@@ -58,7 +77,7 @@ public class AuthorDAO extends ObjectDAO implements Serializable {
 		long count = 0;
 		try {
 			session.getTransaction().begin();
-			Criteria criteriaCount = session.createCriteria(Author.class);
+			Criteria criteriaCount = session.createCriteria(Category.class);
 			criteriaCount.setProjection(Projections.rowCount());
 			count = (long) criteriaCount.uniqueResult();
 			session.getTransaction().commit();
@@ -73,24 +92,24 @@ public class AuthorDAO extends ObjectDAO implements Serializable {
 		return count;
 	}
 
-	public static List<Author> paging(int page, int pageSize) {
+	public static List<Category> paging(int page, int pageSize) {
 
-		List<Author> listAccount = new ArrayList<Author>();
+		List<Category> listCategory = new ArrayList<Category>();
 		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
 
 		try {
 			session.getTransaction().begin();
-			String hql = "from " + Author.class.getName() + " e order by e.accountId asc";
-			Query<Author> query = session.createQuery(hql);
+			String hql = "from " + Category.class.getName() + " e order by e.categoryId asc";
+			Query<Category> query = session.createQuery(hql);
 			query.setFirstResult((page - 1) * pageSize);
 			query.setMaxResults(pageSize);
-			listAccount = query.list();
+			listCategory = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.getTransaction().rollback();
 		}
-		return listAccount;
+		return listCategory;
 	}
 
 }
